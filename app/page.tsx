@@ -147,20 +147,15 @@ export default function Home() {
           priority
           className="mx-auto mt-[10px] w-full max-w-[383px] rounded-[10px]"
         />
-        <p className="max-w-[362px] text-[16px]">{hero.subtitle}</p>
-
-        <CtaButton href="#plano-completo" label={hero.ctaLabel} id="hero" className="max-w-[382px]" />
-        <p className="max-w-[362px] text-[14px]">{hero.note}</p>
-
         <div className="flex flex-wrap items-start justify-center gap-x-[10px]">
           {hero.checks.map((t) => (
-            <span key={t} className="flex w-[175px] items-center gap-[10px] p-[10px] font-display text-[14px] text-black">
+            <span key={t} className="flex w-[220px] items-center gap-[10px] p-[10px] font-display text-[14px] text-black">
               <Check />
               <span className="text-left">{t}</span>
             </span>
           ))}
         </div>
-        <p className="text-[14px] font-semibold text-muted">{hero.deliveryNote}</p>
+        <CtaButton href="#plano-completo" label={hero.ctaLabel} id="hero" className="max-w-[382px]" />
         <Avatars />
       </section>
 
@@ -325,17 +320,6 @@ export default function Home() {
             <p className="font-display text-[18px] text-white">{plansSection.complete.installments}</p>
             <p className="font-display text-[18px] text-white">{plansSection.complete.savings}</p>
             <CtaButton href={CHECKOUT_COMPLETE} label={plansSection.complete.ctaLabel} id="plano_completo" planName="Completo" />
-          </div>
-          <div className="mt-[14px] flex w-full flex-col items-center gap-[10px] rounded-[12px] border border-badge/40 bg-badge/10 p-[16px] text-center">
-            <span className="flex size-[26px] shrink-0 items-center justify-center rounded-full bg-badge text-[15px] font-bold text-white" aria-hidden>
-              ✓
-            </span>
-            <div>
-              <p className="font-display text-[17px] font-semibold leading-[1.15] text-ink">
-                {plansSection.paybackBadge.title}
-              </p>
-              <p className="mt-[4px] text-[15px] text-muted">{plansSection.paybackBadge.subtitle}</p>
-            </div>
           </div>
         </div>
         </div>
