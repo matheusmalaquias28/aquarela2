@@ -47,6 +47,7 @@ export function Marquee({
                 height={dims.height}
                 className={sharedClass}
                 style={sharedStyle}
+                unoptimized
               />
             ) : (
               <ImagePlaceholder
