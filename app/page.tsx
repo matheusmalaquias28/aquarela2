@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Marquee } from "@/components/Marquee";
 import { CtaButton } from "@/components/CtaButton";
@@ -85,12 +86,13 @@ function Avatars() {
           ["avatar-3", "size-[34px]"],
           ["avatar-1", "size-[29px]"],
         ].map(([a, cls], i) => (
-          <ImagePlaceholder
+          <Image
             key={a}
+            src={`/${a}.webp`}
             alt=""
             width={42}
             height={42}
-            className={`rounded-full object-cover ${cls} ${i > 0 ? "-ml-[8px]" : ""}`}
+            className={`rounded-full object-cover ring-2 ring-white ${cls} ${i > 0 ? "-ml-[8px]" : ""}`}
           />
         ))}
       </div>
@@ -132,16 +134,21 @@ export default function Home() {
 
       {/* Hero */}
       <section className="mx-auto flex w-full max-w-[480px] flex-col items-center gap-[16px] px-[10px] pt-[30px] text-center">
-        <ImagePlaceholder alt={hero.logo.alt} width={hero.logo.width} height={hero.logo.height} preload className="h-[46px] w-auto" />
+        {"src" in hero.logo ? (
+          <Image src={hero.logo.src} alt={hero.logo.alt} width={hero.logo.width} height={hero.logo.height} priority className="h-[60px] w-auto" />
+        ) : (
+          <ImagePlaceholder alt={hero.logo.alt} width={hero.logo.width} height={hero.logo.height} preload className="h-[46px] w-auto" />
+        )}
         <h1 className="font-display text-[38px] font-semibold leading-[0.9] text-ink">
           <span className="text-brand">{hero.titleHighlight}</span>
           {hero.title}
         </h1>
-        <ImagePlaceholder
+        <Image
+          src="/img-principal.jpg"
           alt={hero.image.alt}
           width={hero.image.width}
           height={hero.image.height}
-          preload
+          priority
           className="mx-auto mt-[10px] w-full max-w-[383px] rounded-[10px]"
         />
         <p className="max-w-[362px] text-[16px]">{hero.subtitle}</p>
@@ -215,7 +222,8 @@ export default function Home() {
           <h3 className="mt-[10px] font-display text-[32px] font-semibold leading-[1.008] text-white">
             <span>{offerSection.cardTitle}</span>
           </h3>
-          <ImagePlaceholder
+          <Image
+            src="/img-principal.jpg"
             alt={offerSection.image.alt}
             width={offerSection.image.width}
             height={offerSection.image.height}
@@ -238,7 +246,11 @@ export default function Home() {
         <div className="grid grid-cols-1 justify-items-center gap-[16px] lg:grid-cols-3">
           {bonusSection.items.map((b) => (
             <article key={b.title} className="flex w-full max-w-[324px] flex-col items-center gap-[13px] overflow-hidden rounded-[20px] bg-white pb-[20px] text-center">
-              <ImagePlaceholder alt={b.title} width={648} height={446} className="h-[223px] w-full object-cover" />
+              {b.src ? (
+                <Image src={b.src} alt={b.title} width={648} height={446} className="h-[223px] w-full object-cover" />
+              ) : (
+                <ImagePlaceholder alt={b.title} width={648} height={446} className="h-[223px] w-full object-cover" />
+              )}
               <h3 className="max-w-[280px] font-display text-[22px] font-semibold leading-[1.008] text-ink">{b.title}</h3>
               <p className="max-w-[280px] text-[16px] text-[#6b6b6b]">{b.desc}</p>
               <Pill>
@@ -265,7 +277,8 @@ export default function Home() {
         {/* Plano Básico */}
         <div className="flex w-full flex-col items-center gap-[14px] rounded-[16px] border border-[#d5d5d5] bg-[#FCE9D8] px-[10px] py-[30px] text-center">
           <h3 className="font-display text-[32px] font-semibold text-black">{plansSection.basic.name}</h3>
-          <ImagePlaceholder
+          <Image
+            src="/img-sec.jpg"
             alt={plansSection.basic.image.alt}
             width={plansSection.basic.image.width}
             height={plansSection.basic.image.height}
@@ -302,14 +315,15 @@ export default function Home() {
               <Check /> {plansSection.complete.allBonusesLabel}
             </p>
 
-            <ImagePlaceholder
+            <Image
+              src="/img-principal.jpg"
               alt={plansSection.complete.image.alt}
               width={plansSection.complete.image.width}
               height={plansSection.complete.image.height}
               className="w-full max-w-[383px] rounded-[10px]"
             />
             <Pill>{plansSection.complete.pill}</Pill>
-            <FeatureList items={[...plansSection.complete.features, ...bonusFeatures]} light />
+            <FeatureList items={plansSection.complete.features} light />
             <p className="font-display text-[18px] text-alert line-through">{plansSection.complete.oldPrice}</p>
             <p className="font-display text-[64px] font-semibold leading-none text-white">{plansSection.complete.price}</p>
             <p className="font-display text-[18px] text-white">{plansSection.complete.installments}</p>
@@ -333,7 +347,7 @@ export default function Home() {
 
       {/* Garantia */}
       <section className="flex w-full flex-col items-center gap-[20px] bg-navy px-[49px] py-[35px] text-center">
-        <ImagePlaceholder alt={guarantee.seal.alt} width={guarantee.seal.width} height={guarantee.seal.height} />
+        <Image src="/guarantee-seal.webp" alt={guarantee.seal.alt} width={guarantee.seal.width} height={guarantee.seal.height} />
         <h2 className="font-display text-[32px] font-semibold leading-[1.008] text-white">{guarantee.title}</h2>
         <div className="max-w-[320px] text-[16px] text-white">
           <p>{guarantee.intro}</p>

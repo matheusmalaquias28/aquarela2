@@ -33,7 +33,7 @@ export function CtaButton({ href, label, id, planName, className = "" }: Props) 
           window.location.assign(e.currentTarget.href);
         }
       }}
-      className={`cta-pulse flex h-[60px] w-full max-w-[365px] items-center justify-center bg-cta font-display text-[24px] font-semibold text-white ${className}`}
+      className={`cta-pulse flex h-[72px] w-full max-w-[365px] items-center justify-center bg-cta font-display text-[24px] font-semibold text-white ${className}`}
     >
       {label}
     </a>

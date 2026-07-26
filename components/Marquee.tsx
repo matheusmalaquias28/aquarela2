@@ -1,6 +1,7 @@
+import Image from "next/image";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
-type Item = { alt: string; size?: { width: number; height: number } };
+type Item = { src?: string; alt: string; size?: { width: number; height: number } };
 
 type Props = {
   items: Item[];
@@ -32,17 +33,33 @@ export function Marquee({
         style={{ "--marquee-duration": `${duration}s` } as React.CSSProperties}
       >
         {[0, 1].map((copy) =>
-          items.map((it, i) => (
-            <ImagePlaceholder
-              key={`${copy}-${i}`}
-              alt={copy === 0 ? it.alt : ""}
-              aria-hidden={copy === 1}
-              width={(it.size ?? imageSize).width}
-              height={(it.size ?? imageSize).height}
-              className="shrink-0 rounded-[7px] object-cover"
-              style={{ width: itemWidth }}
-            />
-          )),
+          items.map((it, i) => {
+            const dims = it.size ?? imageSize;
+            const sharedClass = "shrink-0 rounded-[7px] object-cover";
+            const sharedStyle = { width: itemWidth };
+            return it.src ? (
+              <Image
+                key={`${copy}-${i}`}
+                src={it.src}
+                alt={copy === 0 ? it.alt : ""}
+                aria-hidden={copy === 1}
+                width={dims.width}
+                height={dims.height}
+                className={sharedClass}
+                style={sharedStyle}
+              />
+            ) : (
+              <ImagePlaceholder
+                key={`${copy}-${i}`}
+                alt={copy === 0 ? it.alt : ""}
+                aria-hidden={copy === 1}
+                width={dims.width}
+                height={dims.height}
+                className={sharedClass}
+                style={sharedStyle}
+              />
+            );
+          }),
         )}
       </div>
     </div>

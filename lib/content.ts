@@ -12,78 +12,88 @@
 
 export const theme = {
   /** Cor principal da marca (sobrescreve --color-brand só nesta página). */
-  brandColor: "#914c2e",
+  brandColor: "#3a7d44",
 };
 
 export const offerBar = {
-  text: "OFERTA ESPECIAL DISPONÍVEL SOMENTE HOJE",
+  text: "OFERTA ESPECIAL DISPONÍVEL APENAS HOJE",
 };
 
 export const hero = {
-  logo: { alt: "Cookies Lucrativos", width: 142, height: 42 },
-  titleHighlight: "+R$200 POR DIA ",
-  title: "COM COOKIES ARTESANAIS EM CASA",
-  image: { alt: "Materiais do desafio Cookies Lucrativos para vender cookies artesanais", width: 1100, height: 1100 },
+  logo: { src: "/logo-aquarelas-da-natureza2.png", alt: "Aquarelas da Natureza", width: 200, height: 60 },
+  titleHighlight: "+35 PINTURAS GUIADAS ",
+  title: "PRONTAS PARA PINTAR AQUARELAS LINDAS DA NATUREZA",
+  image: { alt: "Mockup principal do pacote Aquarelas da Natureza", width: 1100, height: 1100 },
   subtitle:
-    "Você aprenderá a produzir e vender cookies artesanais na sua própria cozinha, conquistando vendas que podem gerar R$200 ou mais por dia, mesmo sem experiência anterior.",
-  ctaLabel: "QUERO COMEÇAR AGORA",
-  note: "Você não precisa abrir uma confeitaria. A maioria das primeiras vendas acontece para vizinhos, colegas de trabalho, faculdade e contatos do WhatsApp.",
+    "Você receberá desenhos-base prontos, referências coloridas e sequências visuais que orientam cada etapa — ideal para iniciantes ou quem quer recomeçar.",
+  ctaLabel: "QUERO PINTAR AGORA",
+  note: "Você não precisa saber desenhar. Basta transferir o desenho-base, seguir a referência colorida e pintar passo a passo.",
   checks: [
-    "Receitas fáceis e rápidas de cookies",
-    "Estratégias de preços lucrativos",
-    "Embalagens atrativas para venda",
-    "Desafio de 7 dias para suas primeiras vendas",
-    "Suporte em grupo exclusivo",
+    "Desenhos-base prontos para usar",
+    "Referências coloridas para facilitar",
+    "Sequências visuais que orientam cada etapa",
+    "Versões prontas para imprimir",
+    "Ideal para iniciantes ou quem quer recomeçar",
   ],
-  deliveryNote: "Você recebe tudo na hora, direto no seu e-mail ✉️ e 📞. É só imprimir e usar.",
-  socialProofLabel: "Mais de 2.000 aluno(a)s",
+  deliveryNote: "📲 Você recebe tudo na hora, direto no seu e-mail",
+  socialProofLabel: "Alunas satisfeitas",
 };
 
 export const materials = {
-  title: "VEJA AS RECEITAS QUE VOCÊ VAI RECEBER JÁ!",
-  imageSize: { width: 575, height: 863 },
+  title: "VEJA O QUE VOCÊ VAI RECEBER JÁ!",
+  imageSize: { width: 1080, height: 1350 },
   items: [
-    { alt: "Ficha da receita: Cookies KitKat" },
-    { alt: "Ficha da receita: Cookies Nutella" },
-    { alt: "Ficha da receita: Cookies Oreo" },
-    { alt: "Ficha da receita: Cookies Ferrero Rocher" },
+    { src: "/entregaveis/beija1.jpg",      alt: "Beija-flor em aquarela" },
+    { src: "/entregaveis/beija2.jpg",      alt: "Beija-flor em aquarela — referência colorida" },
+    { src: "/entregaveis/costela1.jpg",    alt: "Costela de adão em aquarela" },
+    { src: "/entregaveis/costela2.jpg",    alt: "Costela de adão em aquarela — referência colorida" },
+    { src: "/entregaveis/eucalipto1.jpg",  alt: "Eucalipto em aquarela" },
+    { src: "/entregaveis/eucalipto2.jpg",  alt: "Eucalipto em aquarela — referência colorida" },
+    { src: "/entregaveis/girassol1.jpg",   alt: "Girassol em aquarela" },
+    { src: "/entregaveis/girassol2.jpg",   alt: "Girassol em aquarela — referência colorida" },
+    { src: "/entregaveis/raposa1.jpg",     alt: "Raposa em aquarela" },
+    { src: "/entregaveis/raposa2.jpg",     alt: "Raposa em aquarela — referência colorida" },
+    { src: "/entregaveis/rosa1.jpg",       alt: "Rosa em aquarela" },
+    { src: "/entregaveis/rosa2.jpg",       alt: "Rosa em aquarela — referência colorida" },
   ],
 };
 
 export const testimonials = {
-  title: "Veja os depoimentos dos nossos clientes!",
-  imageSize: { width: 738, height: 1460 },
+  title: "Veja o que nossas alunas estão pintando!",
+  imageSize: { width: 1080, height: 1920 },
   items: [
-    { alt: "Depoimento de aluna no WhatsApp" },
-    { alt: "Depoimento de aluna no WhatsApp" },
-    { alt: "Depoimento de aluna no WhatsApp" },
-    { alt: "Depoimento de aluna no WhatsApp" },
-    { alt: "Depoimento de aluna no Instagram", size: { width: 738, height: 1312 } },
-    { alt: "Depoimento de aluna no Instagram", size: { width: 738, height: 1312 } },
-    { alt: "Depoimento de aluna no Instagram", size: { width: 738, height: 1312 } },
+    { src: "/Instagram story - 1 (2).jpg",  alt: "Depoimento de aluna no WhatsApp" },
+    { src: "/Instagram story - 2 (2).jpg",  alt: "Depoimento de aluna no WhatsApp" },
+    { src: "/Instagram story - 3 (2).jpg",  alt: "Depoimento de aluna no WhatsApp" },
+    { src: "/Instagram story - 4 (1).jpg",  alt: "Depoimento de aluna no WhatsApp" },
+    { src: "/Instagram story - 5 (1).jpg",  alt: "Depoimento de aluna no WhatsApp" },
+    { src: "/Instagram story - 6 (1).jpg",  alt: "Depoimento de aluna no WhatsApp" },
+    { src: "/Instagram story - 7 (1).jpg",  alt: "Depoimento de aluna no WhatsApp" },
+    { src: "/Instagram story - 9 (1).jpg",  alt: "Depoimento de aluna no WhatsApp" },
+    { src: "/Instagram story - 10 (1).jpg", alt: "Depoimento de aluna no WhatsApp" },
   ],
 };
 
 export const whySection = {
-  title: "OS MATERIAIS DO DESAFIO COOKIES LUCRATIVOS POSSUEM:",
+  title: "AS AQUARELAS DA NATUREZA POSSUEM:",
   cards: [
-    { icon: "📖", text: "Receitas testadas e aprovadas — fáceis de seguir e aplicar" },
-    { icon: "💰", text: "Orientações sobre precificação — saiba quanto cobrar" },
-    { icon: "🎁", text: "Sugestões de embalagens — atraia mais clientes com um bom visual" },
-    { icon: "🗓️", text: "Desafio de 7 dias — comece a vender rapidamente" },
-    { icon: "💬", text: "Acesso a uma comunidade de suporte — tire dúvidas e troque experiências" },
+    { icon: "🖊️", text: "Desenhos-base prontos — para você não se preocupar em desenhar." },
+    { icon: "🎨", text: "Referências coloridas — escolha as cores com facilidade." },
+    { icon: "👣", text: "Sequências visuais — siga o passo a passo e finalize sua pintura." },
+    { icon: "🖨️", text: "Versões prontas para imprimir — comece a pintar imediatamente." },
+    { icon: "🌿", text: "Projetos completos — cada pintura é um guia para o sucesso." },
   ],
 };
 
 export const idealSection = {
-  title: "ESTE DESAFIO É IDEAL PARA VOCÊ QUE DESEJA",
+  title: "ESTE MATERIAL É IDEAL PARA VOCÊ QUE DESEJA",
   items: [
-    { title: "AUMENTAR SUA RENDA MENSAL", desc: "Ganhar até R$1.000 a mais por semana, trabalhando em casa." },
-    { title: "TRABALHAR NO SEU PRÓPRIO TEMPO", desc: "Produzir e vender cookies nas horas vagas, sem pressão." },
-    { title: "APRENDER UMA NOVA HABILIDADE", desc: "Descubra como fazer cookies deliciosos mesmo sem experiência." },
-    { title: "TER SUPORTE E COMUNIDADE", desc: "Contar com ajuda de outras confeiteiras em um grupo exclusivo." },
-    { title: "VENDER DE FORMA SIMPLES", desc: "Aprender a conquistar clientes com ações práticas e diretas." },
-    { title: "CRIAR LEMBRANÇAS GOSTOSAS", desc: "Fazer cookies que podem se tornar a sua nova fonte de renda." },
+    { title: "COMEÇAR A PINTAR SEM MEDO", desc: "Siga guias visuais que tornam a pintura simples e divertida, mesmo sem experiência." },
+    { title: "TER RESULTADOS BONITOS RAPIDAMENTE", desc: "Finalize aquarelas que você terá orgulho de mostrar a amigos e familiares." },
+    { title: "APROVEITAR UM HOBBY CRIATIVO", desc: "Desperte sua criatividade e relaxe enquanto pinta lindas aquarelas." },
+    { title: "EVITAR FRUSTRAÇÕES", desc: "Tenha tudo que precisa para começar, sem travas ou inseguranças." },
+    { title: "APRENDER A ESCOLHER AS CORES CERTAS", desc: "Use referências visuais que ajudam a combinar cores de forma harmoniosa." },
+    { title: "DECORAR SEU ESPAÇO", desc: "Crie obras que podem embelezar sua casa e trazer alegria ao seu ambiente." },
   ],
 };
 
@@ -91,34 +101,67 @@ export const offerSection = {
   title: "TUDO O QUE VOCÊ VAI RECEBER",
   pill: "⚡ACESSO IMEDIATO",
   cardTitle: "TUDO FOI ORGANIZADO PARA SER SIMPLES E FÁCIL DE APLICAR.",
-  image: { alt: "Materiais do desafio Cookies Lucrativos", width: 1100, height: 1100 },
+  image: { alt: "Mockup do pacote Aquarelas da Natureza", width: 1100, height: 1100 },
   features: [
-    "Precificação: o preço certo para lucrar em cada cookie",
-    "Custos e margem: saiba quanto sobra em cada venda",
-    "Embalagens prontas que valorizam seu cookie",
-    "Como conseguir e fidelizar as primeiras clientes",
+    "35 Aquarelas da Natureza prontas para pintar.",
+    "Desenhos-base prontos para transferência.",
+    "Referência colorida para cada pintura.",
+    "Sequência visual de aplicação para fácil acompanhamento.",
+    "Versões prontas para imprimir e usar.",
+    "Acesso a bônus exclusivos para iniciantes.",
+    "Suporte para dúvidas durante o uso.",
+    "Material didático para facilitar sua experiência.",
+    "Acesso imediato após a compra.",
   ],
   moreLabel: "E MUITO MAIS...",
-  ctaLabel: "QUERO COMEÇAR AGORA",
+  ctaLabel: "QUERO ACESSAR AGORA E PINTAR HOJE",
   deliveryNote: hero.deliveryNote,
 };
 
 export const bonusSection = {
-  titleLines: ["E NÃO PARA POR AÍ... TEM MAIS!", "você também vai receber:"],
-  pill: "🎁 3 BÔNUS EXCLUSIVOS",
+  titleLines: ["E NÃO PARA POR AÍ... TEM MAIS!", "Você também vai receber…"],
+  pill: "🎁 5 BÔNUS EXCLUSIVOS",
   exclusiveNote: ["BÔNUS INCLUSO APENAS", "NO PLANO COMPLETO"],
   items: [
-    { title: "Instagram Magnético para Confeiteiras", desc: "Como atrair clientes pelo Instagram.", price: "R$27" },
-    { title: "20 Ações para Conseguir Clientes", desc: "Ações simples para gerar pedidos.", price: "R$27" },
-    { title: "Comunidade Primeiras Vendas", desc: "Grupo exclusivo para networking e dúvidas.", price: "R$27" },
+    {
+      src: "/bonus1.jpg",
+      title: "10 Primeiras Aquarelas",
+      desc: "Dez pinturas menores e mais simples para quem nunca utilizou aquarela. Os projetos possuem poucos elementos, paletas reduzidas e traços fáceis de transferir. Servem como uma porta de entrada antes das pinturas principais.",
+      price: "R$27",
+    },
+    {
+      src: "/bonus2.jpg",
+      title: "15 Mini Aquarelas Botânicas",
+      desc: "Quinze pequenos desenhos de flores, folhas, vasos e ramos para pinturas rápidas. Podem ser usados em cartões, marcadores de página, presentes e pequenas molduras. São projetos econômicos em papel e tinta.",
+      price: "R$27",
+    },
+    {
+      src: "/bonus3.jpg",
+      title: "6 Quadros Botânicos Combinados",
+      desc: "Três pares de pinturas planejadas para serem emolduradas e usadas lado a lado. Cada conjunto possui cores, proporções e elementos que combinam visualmente. Você receberá uma aplicação pronta para decoração.",
+      price: "R$27",
+    },
+    {
+      src: "/bonus4.jpg",
+      title: "Guia de Impressão e Transferência",
+      desc: "Explica visualmente como levar o desenho-base para o papel de aquarela. Inclui opções com grafite, papel carbono, janela, mesa de luz e impressão direta. Evita que você fique travada na primeira etapa.",
+      price: "R$27",
+    },
+    {
+      src: "/bonus5.jpg",
+      title: "Guia Visual de Materiais",
+      desc: "Apresenta tintas, pincéis, papéis e acessórios essenciais para começar. Inclui opções básicas e econômicas, sem exigir materiais profissionais. Ajuda a comprar apenas o necessário.",
+      price: "R$27",
+    },
   ],
 };
 
-/** Itens 🎁 exibidos nas listas dos planos (tachados no Básico, inclusos no Completo). */
 export const bonusFeatures = [
-  "🎁 Instagram Magnético para Confeiteiras",
-  "🎁 20 Ações para Conseguir Clientes",
-  "🎁 Comunidade Primeiras Vendas",
+  "🎁 BÔNUS - 10 Primeiras Aquarelas",
+  "🎁 BÔNUS - 15 Mini Aquarelas Botânicas",
+  "🎁 BÔNUS - 6 Quadros Botânicos Combinados",
+  "🎁 BÔNUS - Guia de Impressão e Transferência",
+  "🎁 BÔNUS - Guia Visual de Materiais",
 ];
 
 export const plansSection = {
@@ -126,38 +169,42 @@ export const plansSection = {
   title: "ESCOLHA A MELHOR OPÇÃO PARA VOCÊ",
   basic: {
     name: "Plano Básico",
-    image: { alt: "Materiais do Plano Básico do desafio Cookies Lucrativos", width: 1104, height: 1104 },
-    receiveLabel: "você recebe:",
+    image: { alt: "Materiais do Plano Básico Aquarelas da Natureza", width: 1104, height: 1104 },
+    receiveLabel: "Você recebe:",
     features: [
-      "Receitas de Cookies Clássicos",
-      "Guia de Precificação Lucrativa",
-      "Sugestões de Embalagens Criativas",
-      "Acesso ao Desafio de 7 dias",
+      "35 Aquarelas da Natureza prontas para pintar.",
+      "Desenhos-base prontos para transferência.",
+      "Referência colorida para cada pintura.",
+      "Sequência visual de aplicação para fácil acompanhamento.",
     ],
     oldPrice: "R$37,90",
     price: "R$27,90",
-    installments: "ou 4x de R$7,47 no cartão",
+    installments: "ou 4x de R$7,00 no cartão",
     savings: "🟢 você economiza R$10,00",
-    ctaLabel: "QUERO O PLANO BÁSICO!",
+    ctaLabel: "QUERO O PLANO BÁSICO",
   },
   complete: {
     badge: "🔥 ÚLTIMA CHANCE — OFERTA TERMINA HOJE",
     name: "PLANO COMPLETO",
     allBonusesLabel: "TODOS OS BÔNUS INCLUSOS",
-    image: { alt: "Materiais do desafio Cookies Lucrativos", width: 1100, height: 1100 },
-    pill: "⚡3X MAIS CONTEÚDOS",
+    image: { alt: "Mockup do plano completo Aquarelas da Natureza", width: 1100, height: 1100 },
+    pill: "⚡5x MAIS CONTEÚDOS",
     features: [
-      "Receitas de cookies clássicos e gourmet.",
-      "Guia de precificação lucrativa.",
-      "Sugestões de embalagens criativas.",
-      "Desafio de 7 dias para suas primeiras vendas.",
-      "Acesso à comunidade de suporte.",
+      "35 Aquarelas da Natureza prontas para pintar.",
+      "Desenhos-base prontos para transferência.",
+      "Referência colorida para cada pintura.",
+      "Sequência visual de aplicação para fácil acompanhamento.",
+      "🎁 BÔNUS - 10 Primeiras Aquarelas",
+      "🎁 BÔNUS - 15 Mini Aquarelas Botânicas",
+      "🎁 BÔNUS - 6 Quadros Botânicos Combinados",
+      "🎁 BÔNUS - Guia de Impressão e Transferência",
+      "🎁 BÔNUS - Guia Visual de Materiais",
     ],
     oldPrice: "R$67,90",
     price: "R$37,90",
-    installments: "ou 6x de R$6,35 no cartão",
+    installments: "ou 6x de R$7,00 no cartão",
     savings: "🟢 você economiza R$30,00",
-    ctaLabel: "QUERO O PLANO COMPLETO!",
+    ctaLabel: "QUERO O PLANO COMPLETO",
   },
   upsellNote: {
     alert: "AINDA DÁ TEMPO DE LEVAR A MELHOR OPÇÃO!",
@@ -165,8 +212,8 @@ export const plansSection = {
     highlight: "SUPER OFERTA!",
   },
   paybackBadge: {
-    title: "UMA ÚNICA VENDA PODE PAGAR O VALOR DO PACOTE INTEIRO.",
-    subtitle: "Todo o resto vira lucro.",
+    title: "UMA ÚNICA OBRA EMOLDURADA JÁ VALE MAIS DO QUE O VALOR DO PACOTE.",
+    subtitle: "Todo o resto vira puro prazer.",
   },
 };
 
@@ -176,8 +223,8 @@ export const guarantee = {
   intro: "SEU INVESTIMENTO É TOTALMENTE SEGURO",
   lead: "Isso significa que, a qualquer momento, se você achar que:",
   bullets: [
-    "o material não faz sentido para suas vendas.",
-    "as receitas não atendem suas expectativas.",
+    "o material não faz sentido para sua pintura.",
+    "as aquarelas não atendem sua necessidade.",
     "ou simplesmente não quiser continuar.",
   ],
   outro: "Você pode solicitar o reembolso. Sem prazo, sem burocracia.",
@@ -186,60 +233,51 @@ export const guarantee = {
 };
 
 export const contact = {
-  email: "contato@acookielab.com",
+  email: "contato@aquarelasdanatureza.com",
 };
 
 export const stepsSection = {
-  title: "Como funciona o acesso:",
-  subtitle: "(passo a passo)",
-  ctaLabel: "QUERO ACESSAR AGORA!",
+  title: "COMO É O ACESSO",
+  subtitle: "(SIGA OS PASSOS ABAIXO PARA COMEÇAR A PINTAR.)",
+  ctaLabel: "QUERO COMEÇAR A PINTAR",
   steps: [
     {
       icon: "🛒",
       title: "Conclua sua compra",
       desc: "Após o pagamento, seu acesso é liberado automaticamente.",
-      items: ["Você recebe um e-mail de confirmação.", "Acesse a área de membros."],
+      items: ["Receba o acesso por e-mail.", "Acesse a área de membros.", "Baixe os arquivos."],
     },
     {
-      icon: "📱",
-      title: "Entre na área de membros",
-      desc: "Acesse o conteúdo exclusivo do desafio.",
-      items: ["Receitas e guias disponíveis.", "Suporte em grupo para dúvidas.", "Networking com outras confeiteiras."],
+      icon: "🖼️",
+      title: "Escolha sua pintura",
+      desc: "Navegue pelas aquarelas disponíveis e escolha a que mais gosta.",
+      items: ["Veja as referências.", "Escolha seu desenho-base.", "Prepare seus materiais."],
     },
     {
-      icon: "📁",
-      title: "Baixe os arquivos",
-      desc: "Tenha acesso a todos os materiais prontos.",
-      items: ["Receitas em formato PDF.", "Guias prontos para impressão.", "Conteúdo acessível sempre que precisar."],
+      icon: "🎨",
+      title: "Acompanhe a sequência visual",
+      desc: "Siga passo a passo as instruções para pintar sua aquarela.",
+      items: ["Transfira o desenho-base.", "Pinte seguindo as referências.", "Finalize sua obra."],
     },
     {
-      icon: "🍪",
-      title: "Use e aplique",
-      desc: "Comece a produzir e vender seus cookies.",
-      items: ["Imprima as receitas.", "Prepare os cookies.", "Venda e veja sua renda aumentar."],
+      icon: "🌿",
+      title: "Compartilhe suas criações",
+      desc: "Mostre suas aquarelas para amigos e familiares.",
+      items: ["Sinta-se orgulhosa de suas criações.", "Receba feedback positivo.", "Inspire outras pessoas a pintar."],
     },
   ],
 };
 
 export const faq: readonly (readonly [string, string])[] = [
-  ["Nunca fiz cookies. Esse material é para mim?", "Sim! O método foi pensado para iniciantes: as receitas trazem o passo a passo completo, com técnicas explicadas do zero."],
-  ["Preciso ter experiência na cozinha?", "Não. Você só precisa seguir as receitas — os segredos da massa, preparo e modelagem estão detalhados no material."],
-  ["Quanto preciso investir para começar?", "Muito pouco. Os ingredientes são fáceis de encontrar em qualquer mercado e você pode começar com o que já tem na sua cozinha."],
-  ["Quanto posso ganhar vendendo cookies?", "Depende do quanto você produz e vende. Para ter uma referência: um cookie gourmet é vendido em média entre R$10 e R$16, com custo de produção bem menor que isso. O material inclui a planilha de precificação e margem para você saber exatamente seu lucro por fornada."],
-  ["Como vou receber o material?", "Imediatamente após a compra, direto no seu e-mail. É só baixar, imprimir e usar."],
-  ["O acesso é vitalício?", "Sim! Você paga uma única vez e o material é seu para sempre."],
-  ["Os bônus estão inclusos?", "Os 4 bônus exclusivos estão inclusos apenas no Plano Completo."],
-  ["Posso assistir pelo celular?", "Sim, o material funciona em celular, computador e tablet."],
-  ["E se eu não gostar do material?", "Você tem 7 dias de garantia total. Basta pedir o reembolso e devolvemos todo o valor pago."],
-  ["A compra é segura?", "Totalmente. O pagamento é processado por plataforma segura e seus dados ficam protegidos."],
-  ["Funciona para quem mora em cidade pequena?", "Sim! Em cidades pequenas a concorrência é menor e o boca a boca funciona ainda mais rápido. Vizinhos, escolas, comércios e eventos locais são ótimos pontos de venda."],
-  ["Eu sou tímida, não sei vender nem abordar as pessoas", "Sem problema. O bônus de como conseguir os primeiros clientes traz estratégias simples que não dependem de abordagem: você pode vender pelo WhatsApp, Instagram e por indicação — o produto chama atenção sozinho."],
-  ["Tenho pouco tempo no meu dia, dá para vender mesmo assim?", "Dá sim. Você pode produzir em poucas horas nos horários livres ou finais de semana. A massa pode ser feita com antecedência, e você pode trabalhar por encomenda, produzindo só o que já foi vendido, sem desperdício."],
-  ["Preciso ter muitos equipamentos para começar?", "Não. Forno, batedeira (ou até mesmo as mãos), tigelas e assadeiras que você provavelmente já tem em casa são suficientes para começar."],
-  ["Por que esse material é diferente de uma simples receita de Cookie?", "Porque receita sozinha não gera renda. Aqui você recebe 100 receitas validadas + o passo a passo do negócio: precificação, cálculo de custos, embalagens e estratégias para conseguir e fidelizar clientes."],
+  ["Preciso saber desenhar para usar?", "Não! O material já inclui os desenhos-base prontos para transferência. Você não precisa criar o esboço do zero — basta transferir e começar a pintar."],
+  ["O acesso é imediato?", "Sim! Assim que o pagamento for confirmado, você recebe o acesso por e-mail e já pode baixar todos os arquivos."],
+  ["As aquarelas são para iniciantes?", "Sim, o material foi pensado especialmente para iniciantes. As referências coloridas e as sequências visuais guiam cada etapa, sem exigir conhecimento prévio."],
+  ["Posso usar as aquarelas para decorar?", "Com certeza! As pinturas foram desenvolvidas com temática da natureza para ficarem lindas emolduradas e decorar qualquer ambiente da sua casa."],
+  ["Qual é a política de reembolso?", "Você tem 7 dias de garantia total. Se não ficar satisfeita, basta entrar em contato e devolvemos 100% do valor pago, sem burocracia."],
+  ["Os materiais são caros?", "Não. O Guia Visual de Materiais (incluso no Plano Completo) indica opções básicas e econômicas. Você não precisa de materiais profissionais para começar."],
 ];
 
 export const footer = {
   legal:
-    "Este site não possui qualquer vínculo com Facebook, Google ou qualquer outra plataforma mencionada. Todos os direitos da obra “Desafio Cookies Lucrativos” são reservados ao seu autor. A reprodução não autorizada, total ou parcial, por qualquer meio, constitui violação de direitos autorais e pode resultar em sanções civis e criminais, de acordo com a legislação aplicável.",
+    "Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Após sair do Facebook, a responsabilidade não é deles e sim do nosso site. Fazemos todos os esforços para indicar claramente e mostrar todas as provas do produto e usamos resultados reais. Nós não vendemos o seu e-mail ou qualquer informação para terceiros. Jamais fazemos algum tipo de spam. Se você tiver alguma dúvida, sinta-se à vontade para usar o link de contato e falar conosco em horário comercial de Segunda a Sextas das 09h00 às 18h00. Lemos e respondemos todas as mensagens por ordem de chegada.",
 };
