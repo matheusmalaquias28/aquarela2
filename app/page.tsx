@@ -134,11 +134,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="mx-auto flex w-full max-w-[480px] flex-col items-center gap-[16px] px-[10px] pt-[30px] text-center">
-        {"src" in hero.logo ? (
-          <Image src={hero.logo.src} alt={hero.logo.alt} width={hero.logo.width} height={hero.logo.height} priority className="h-[60px] w-auto" />
-        ) : (
-          <ImagePlaceholder alt={hero.logo.alt} width={hero.logo.width} height={hero.logo.height} preload className="h-[46px] w-auto" />
-        )}
+        <Image src={hero.logo.src} alt={hero.logo.alt} width={hero.logo.width} height={hero.logo.height} priority className="h-[60px] w-auto" />
         <h1 className="font-display text-[38px] font-semibold leading-[0.9] text-ink">
           <span className="text-brand">{hero.titleHighlight}</span>
           {hero.title}
