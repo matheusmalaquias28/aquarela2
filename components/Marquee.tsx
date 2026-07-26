@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
 type Item = { src?: string; alt: string; size?: { width: number; height: number } };
@@ -36,18 +35,17 @@ export function Marquee({
           items.map((it, i) => {
             const dims = it.size ?? imageSize;
             const sharedClass = "shrink-0 rounded-[7px] object-cover";
-            const sharedStyle = { width: itemWidth };
+            const sharedStyle: React.CSSProperties = { width: itemWidth, aspectRatio: `${dims.width} / ${dims.height}` };
             return it.src ? (
-              <Image
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
                 key={`${copy}-${i}`}
                 src={it.src}
                 alt={copy === 0 ? it.alt : ""}
                 aria-hidden={copy === 1}
-                width={dims.width}
-                height={dims.height}
                 className={sharedClass}
                 style={sharedStyle}
-                unoptimized
+                loading={copy === 0 ? "eager" : "lazy"}
               />
             ) : (
               <ImagePlaceholder
