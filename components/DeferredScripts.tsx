@@ -24,14 +24,6 @@ export function DeferredScripts() {
         utmify.defer = true;
         document.body.appendChild(utmify);
       }
-
-      if (!document.getElementById("clarity-script")) {
-        const clarity = document.createElement("script");
-        clarity.id = "clarity-script";
-        clarity.async = true;
-        clarity.src = "https://www.clarity.ms/tag/xo7jsjm0j0";
-        document.body.appendChild(clarity);
-      }
     };
 
     if (typeof requestIdleCallback === "function") {
