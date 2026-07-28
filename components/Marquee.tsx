@@ -46,6 +46,7 @@ export function Marquee({
                 className={sharedClass}
                 style={sharedStyle}
                 loading="lazy"
+                fetchPriority="low"
                 decoding="async"
               />
             ) : (

@@ -23,7 +23,7 @@ export const hero = {
   logo: { src: "/logo-aquarelas-da-natureza2.webp", alt: "Aquarelas da Natureza", width: 200, height: 60 },
   titleHighlight: "+35 PINTURAS GUIADAS ",
   title: "PRONTAS PARA PINTAR AQUARELAS LINDAS DA NATUREZA",
-  image: { alt: "Mockup principal do pacote Aquarelas da Natureza", width: 1100, height: 1100 },
+  image: { alt: "Mockup principal do pacote Aquarelas da Natureza", width: 383, height: 383 },
   subtitle:
     "Você receberá desenhos-base prontos, referências coloridas e sequências visuais que orientam cada etapa — ideal para iniciantes ou quem quer recomeçar.",
   ctaLabel: "QUERO PINTAR AGORA",

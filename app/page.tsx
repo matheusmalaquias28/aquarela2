@@ -1,9 +1,9 @@
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Marquee } from "@/components/Marquee";
 import { CtaButton } from "@/components/CtaButton";
 import { TodayDate } from "@/components/TodayDate";
-import { StickyCta } from "@/components/StickyCta";
 import { CHECKOUT_BASIC, CHECKOUT_COMPLETE } from "@/lib/config";
 import {
   theme,
@@ -23,6 +23,9 @@ import {
   faq,
   footer,
 } from "@/lib/content";
+
+const StickyCta = dynamic(() => import("@/components/StickyCta").then((m) => m.StickyCta));
+import { DeferredTestimonialSection } from "@/components/DeferredTestimonialSection";
 
 /* ---------- peças compartilhadas ---------- */
 
@@ -76,9 +79,7 @@ function FeatureList({ items, struckItems = [], light = false }: { items: string
 }
 
 function Avatars({ priority = false }: { priority?: boolean }) {
-  const imgProps = priority
-    ? { loading: "eager" as const, fetchPriority: "high" as const }
-    : { loading: "lazy" as const };
+  const loading = priority ? "eager" : "lazy";
 
   return (
     <div className="flex flex-col items-center gap-[5px]">
@@ -96,7 +97,7 @@ function Avatars({ priority = false }: { priority?: boolean }) {
             alt=""
             width={42}
             height={42}
-            {...imgProps}
+            loading={loading}
             className={`rounded-full object-cover ring-2 ring-white ${cls} ${i > 0 ? "-ml-[8px]" : ""}`}
           />
         ))}
@@ -120,9 +121,6 @@ function MaterialsCarousel() {
 }
 
 /* Carrossel de prints de depoimentos: 1,5 imagem visível por vez. */
-function TestimonialGrid() {
-  return <Marquee duration={28} itemWidth={250} imageSize={testimonials.imageSize} items={testimonials.items} />;
-}
 
 /* ---------- página ---------- */
 
@@ -139,28 +137,29 @@ export default function Home() {
 
       {/* Hero */}
       <section className="mx-auto flex w-full max-w-[480px] flex-col items-center gap-[16px] px-[10px] pt-[30px] text-center">
-        <Image
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
           src={hero.logo.src}
           alt={hero.logo.alt}
           width={hero.logo.width}
           height={hero.logo.height}
           loading="eager"
-          fetchPriority="high"
-          sizes={`${hero.logo.width}px`}
+          decoding="async"
           className="h-[60px] w-auto"
         />
         <h1 className="font-display text-[38px] font-semibold leading-[0.9] text-ink">
           <span className="text-brand">{hero.titleHighlight}</span>
           {hero.title}
         </h1>
-        <Image
-          src="/img-principal.webp"
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/img-principal-383.webp"
           alt={hero.image.alt}
-          width={hero.image.width}
-          height={hero.image.height}
-          priority
+          width={383}
+          height={383}
           fetchPriority="high"
-          sizes="(max-width: 480px) 383px, 383px"
+          loading="eager"
+          decoding="sync"
           className="mx-auto mt-[10px] w-full max-w-[383px] rounded-[10px]"
         />
         <div className="flex flex-wrap items-start justify-center gap-x-[10px]">
@@ -176,9 +175,7 @@ export default function Home() {
       </section>
 
       {/* Depoimentos abaixo da hero */}
-      <section className="mx-auto flex w-full max-w-[480px] flex-col items-center px-[10px] py-[26px]">
-        <TestimonialGrid />
-      </section>
+      <DeferredTestimonialSection />
 
       {/* Materiais */}
       <section className="mx-auto flex w-full max-w-[480px] flex-col items-center gap-[20px] px-[10px] py-[30px] text-center lg:max-w-[640px]">
@@ -230,7 +227,7 @@ export default function Home() {
             <span>{offerSection.cardTitle}</span>
           </h3>
           <Image
-            src="/img-principal.webp"
+            src="/img-principal-383.webp"
             alt={offerSection.image.alt}
             width={offerSection.image.width}
             height={offerSection.image.height}
@@ -271,7 +268,7 @@ export default function Home() {
               <h3 className="max-w-[280px] font-display text-[22px] font-semibold leading-[1.008] text-ink">{b.title}</h3>
               <p className="max-w-[280px] text-[16px] text-[#6b6b6b]">{b.desc}</p>
               <Pill>
-                Valor: <s>{b.price}</s> <strong className="font-extrabold">GRÁTIS</strong>
+                Valor: <s>{b.price}</s> <strong className="font-bold">GRÁTIS</strong>
               </Pill>
               <p className="font-display text-[15px] font-semibold leading-[1.008] text-alert">
                 {bonusSection.exclusiveNote[0]}
@@ -335,7 +332,7 @@ export default function Home() {
             </p>
 
             <Image
-              src="/img-principal.webp"
+              src="/img-principal-383.webp"
               alt={plansSection.complete.image.alt}
               width={plansSection.complete.image.width}
               height={plansSection.complete.image.height}
@@ -396,7 +393,7 @@ export default function Home() {
         <h2 className="max-w-[356px] font-display text-[38px] font-semibold leading-[0.9] text-ink">
           {testimonials.title}
         </h2>
-        <TestimonialGrid />
+        <Marquee duration={28} itemWidth={250} imageSize={testimonials.imageSize} items={testimonials.items} />
       </section>
 
       {/* Como funciona */}
