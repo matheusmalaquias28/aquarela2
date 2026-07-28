@@ -45,7 +45,8 @@ export function Marquee({
                 aria-hidden={copy === 1}
                 className={sharedClass}
                 style={sharedStyle}
-                loading={copy === 0 ? "eager" : "lazy"}
+                loading="lazy"
+                decoding="async"
               />
             ) : (
               <ImagePlaceholder

@@ -75,7 +75,11 @@ function FeatureList({ items, struckItems = [], light = false }: { items: string
   );
 }
 
-function Avatars() {
+function Avatars({ priority = false }: { priority?: boolean }) {
+  const imgProps = priority
+    ? { loading: "eager" as const, fetchPriority: "high" as const }
+    : { loading: "lazy" as const };
+
   return (
     <div className="flex flex-col items-center gap-[5px]">
       <div className="flex items-center justify-center">
@@ -92,6 +96,7 @@ function Avatars() {
             alt=""
             width={42}
             height={42}
+            {...imgProps}
             className={`rounded-full object-cover ring-2 ring-white ${cls} ${i > 0 ? "-ml-[8px]" : ""}`}
           />
         ))}
@@ -134,17 +139,28 @@ export default function Home() {
 
       {/* Hero */}
       <section className="mx-auto flex w-full max-w-[480px] flex-col items-center gap-[16px] px-[10px] pt-[30px] text-center">
-        <Image src={hero.logo.src} alt={hero.logo.alt} width={hero.logo.width} height={hero.logo.height} priority className="h-[60px] w-auto" />
+        <Image
+          src={hero.logo.src}
+          alt={hero.logo.alt}
+          width={hero.logo.width}
+          height={hero.logo.height}
+          loading="eager"
+          fetchPriority="high"
+          sizes={`${hero.logo.width}px`}
+          className="h-[60px] w-auto"
+        />
         <h1 className="font-display text-[38px] font-semibold leading-[0.9] text-ink">
           <span className="text-brand">{hero.titleHighlight}</span>
           {hero.title}
         </h1>
         <Image
-          src="/img-principal.jpg"
+          src="/img-principal.webp"
           alt={hero.image.alt}
           width={hero.image.width}
           height={hero.image.height}
           priority
+          fetchPriority="high"
+          sizes="(max-width: 480px) 383px, 383px"
           className="mx-auto mt-[10px] w-full max-w-[383px] rounded-[10px]"
         />
         <div className="flex flex-wrap items-start justify-center gap-x-[10px]">
@@ -156,7 +172,7 @@ export default function Home() {
           ))}
         </div>
         <CtaButton href="#plano-completo" label={hero.ctaLabel} id="hero" className="max-w-[382px]" />
-        <Avatars />
+        <Avatars priority />
       </section>
 
       {/* Depoimentos abaixo da hero */}
@@ -214,10 +230,12 @@ export default function Home() {
             <span>{offerSection.cardTitle}</span>
           </h3>
           <Image
-            src="/img-principal.jpg"
+            src="/img-principal.webp"
             alt={offerSection.image.alt}
             width={offerSection.image.width}
             height={offerSection.image.height}
+            loading="lazy"
+            sizes="(max-width: 480px) 383px, 383px"
             className="w-full max-w-[383px] rounded-[10px]"
           />
           <FeatureList items={[...offerSection.features, ...bonusFeatures]} light />
@@ -238,7 +256,15 @@ export default function Home() {
           {bonusSection.items.map((b) => (
             <article key={b.title} className="flex w-full max-w-[324px] flex-col items-center gap-[13px] overflow-hidden rounded-[20px] bg-white pb-[20px] text-center">
               {b.src ? (
-                <Image src={b.src} alt={b.title} width={648} height={446} className="h-[223px] w-full object-cover" />
+                <Image
+                  src={b.src}
+                  alt={b.title}
+                  width={648}
+                  height={446}
+                  loading="lazy"
+                  sizes="(max-width: 1024px) 324px, 324px"
+                  className="h-[223px] w-full object-cover"
+                />
               ) : (
                 <ImagePlaceholder alt={b.title} width={648} height={446} className="h-[223px] w-full object-cover" />
               )}
@@ -269,10 +295,12 @@ export default function Home() {
         <div className="flex w-full flex-col items-center gap-[14px] rounded-[16px] border border-[#d5d5d5] bg-[#FCE9D8] px-[10px] py-[30px] text-center">
           <h3 className="font-display text-[32px] font-semibold text-black">{plansSection.basic.name}</h3>
           <Image
-            src="/img-sec.jpg"
+            src="/img-sec.webp"
             alt={plansSection.basic.image.alt}
             width={plansSection.basic.image.width}
             height={plansSection.basic.image.height}
+            loading="lazy"
+            sizes="(max-width: 480px) 383px, 383px"
             className="w-full max-w-[383px] rounded-[10px]"
           />
           <h2 className="font-display text-[32px] font-semibold text-black">{plansSection.basic.receiveLabel}</h2>
@@ -307,10 +335,12 @@ export default function Home() {
             </p>
 
             <Image
-              src="/img-principal.jpg"
+              src="/img-principal.webp"
               alt={plansSection.complete.image.alt}
               width={plansSection.complete.image.width}
               height={plansSection.complete.image.height}
+              loading="lazy"
+              sizes="(max-width: 480px) 383px, 383px"
               className="w-full max-w-[383px] rounded-[10px]"
             />
             <Pill>{plansSection.complete.pill}</Pill>
@@ -327,7 +357,14 @@ export default function Home() {
 
       {/* Garantia */}
       <section className="flex w-full flex-col items-center gap-[20px] bg-navy px-[49px] py-[35px] text-center">
-        <Image src="/guarantee-seal.webp" alt={guarantee.seal.alt} width={guarantee.seal.width} height={guarantee.seal.height} />
+        <Image
+          src="/guarantee-seal.webp"
+          alt={guarantee.seal.alt}
+          width={guarantee.seal.width}
+          height={guarantee.seal.height}
+          loading="lazy"
+          sizes={`${guarantee.seal.width}px`}
+        />
         <h2 className="font-display text-[32px] font-semibold leading-[1.008] text-white">{guarantee.title}</h2>
         <div className="max-w-[320px] text-[16px] text-white">
           <p>{guarantee.intro}</p>

@@ -17,8 +17,25 @@ export function StickyCta() {
     const plan = document.getElementById("plano-completo");
     if (!hero || !plan) return;
 
-    const heroIo = new IntersectionObserver(([e]) => setPastHero(!e.isIntersecting));
-    const planIo = new IntersectionObserver(([e]) => setPlanVisible(e.isIntersecting), { threshold: 0.15 });
+    let heroVisible = true;
+    let planInView = false;
+
+    const sync = () => {
+      setPastHero(!heroVisible);
+      setPlanVisible(planInView);
+    };
+
+    const heroIo = new IntersectionObserver(([e]) => {
+      heroVisible = e.isIntersecting;
+      requestAnimationFrame(sync);
+    });
+    const planIo = new IntersectionObserver(
+      ([e]) => {
+        planInView = e.isIntersecting;
+        requestAnimationFrame(sync);
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
+    );
     heroIo.observe(hero);
     planIo.observe(plan);
     return () => {
