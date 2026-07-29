@@ -29,17 +29,27 @@ import { DeferredTestimonialSection } from "@/components/DeferredTestimonialSect
 
 /* ---------- peças compartilhadas ---------- */
 
-function Check({ className = "w-4" }: { className?: string }) {
+function Check({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 18 13" fill="none" className={`${className} shrink-0`} aria-hidden>
+    <svg viewBox="0 0 18 13" fill="none" className={`w-4 shrink-0 ${className}`} aria-hidden>
       <path d="M17 1L6 12L1 7" stroke="#07C707" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-function Cross({ className = "w-4" }: { className?: string }) {
+function IdealCheck() {
   return (
-    <svg viewBox="0 0 14 14" fill="none" className={`${className} shrink-0`} aria-hidden>
+    <span className="flex size-[22px] shrink-0 items-center justify-center rounded-full bg-badge" aria-hidden>
+      <svg viewBox="0 0 12 9" className="w-[10px]" fill="none">
+        <path d="M1 4.5L4.5 8L11 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
+}
+
+function Cross({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 14 14" fill="none" className={`w-4 shrink-0 ${className}`} aria-hidden>
       <path d="M1 1L13 13M13 1L1 13" stroke="#E53935" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
@@ -136,7 +146,7 @@ export default function Home() {
       <StickyCta />
 
       {/* Hero */}
-      <section className="mx-auto flex w-full max-w-[480px] flex-col items-center gap-[16px] px-[10px] pt-[30px] text-center">
+      <section className="mx-auto flex w-full max-w-[480px] flex-col items-center gap-[16px] px-[10px] pt-0 text-center">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={hero.logo.src}
@@ -162,10 +172,10 @@ export default function Home() {
           decoding="sync"
           className="mx-auto mt-[10px] w-full max-w-[383px] rounded-[10px]"
         />
-        <div className="flex flex-wrap items-start justify-center gap-x-[10px]">
+        <div className="grid w-full max-w-[460px] grid-cols-2 gap-x-[10px]">
           {hero.checks.map((t) => (
-            <span key={t} className="flex w-[220px] items-center gap-[10px] p-[10px] font-display text-[14px] text-black">
-              <Check />
+            <span key={t} className="flex items-start gap-[10px] p-[10px] font-display text-[14px] text-black">
+              <Check className="mt-[2px]" />
               <span className="text-left">{t}</span>
             </span>
           ))}
@@ -190,9 +200,12 @@ export default function Home() {
         </h2>
         <div className="mx-auto flex w-full max-w-[1000px] flex-col gap-[11px]">
           {whySection.cards.map((c) => (
-            <div key={c.text} className="flex w-full items-center gap-[14px] rounded-[10px] bg-white p-[16px]">
+            <div key={c.title} className="flex w-full items-start gap-[14px] rounded-[10px] bg-white p-[16px]">
               <span className="text-[28px] leading-none" aria-hidden>{c.icon}</span>
-              <p className="text-left font-display text-[20px] leading-[1.18] text-black">{c.text}</p>
+              <div className="flex flex-col gap-[4px] text-left">
+                <p className="font-display text-[20px] font-semibold leading-[1.18] text-black">{c.title}</p>
+                <p className="text-[16px] leading-[1.3] text-[#444]">{c.desc}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -205,12 +218,13 @@ export default function Home() {
         </h2>
         <div className="grid w-full gap-[11px] lg:grid-cols-3">
           {idealSection.items.map((item) => (
-            <div key={item.title} className="flex items-start gap-[12px] rounded-[10px] bg-brand p-[16px] text-left">
-              <Check className="mt-[5px] w-4" />
-              <div className="flex flex-col gap-[6px]">
-                <p className="font-display text-[20px] font-semibold leading-[1.1] text-white">{item.title}</p>
-                <p className="text-[16px] leading-[1.3] text-white/85">{item.desc}</p>
-              </div>
+            <div
+              key={item.title}
+              className="flex flex-col items-center gap-[12px] rounded-[15px] bg-[#e6f9e9] px-[24px] py-[32px] text-center"
+            >
+              <IdealCheck />
+              <p className="font-display text-[18px] font-bold uppercase leading-[1.15] text-black">{item.title}</p>
+              <p className="text-[15px] leading-[1.35] text-black">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -415,7 +429,7 @@ export default function Home() {
                 <ul className="mt-[4px] flex flex-col gap-[2px]">
                   {s.items.map((t) => (
                     <li key={t} className="flex items-center gap-[8px] text-[14px] text-black">
-                      <Check className="w-[13px]" />
+                      <Check className="!w-[13px]" />
                       {t}
                     </li>
                   ))}

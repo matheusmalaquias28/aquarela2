@@ -77,11 +77,11 @@ export const testimonials = {
 export const whySection = {
   title: "AS AQUARELAS DA NATUREZA POSSUEM:",
   cards: [
-    { icon: "🖊️", text: "Desenhos-base prontos — para você não se preocupar em desenhar." },
-    { icon: "🎨", text: "Referências coloridas — escolha as cores com facilidade." },
-    { icon: "👣", text: "Sequências visuais — siga o passo a passo e finalize sua pintura." },
-    { icon: "🖨️", text: "Versões prontas para imprimir — comece a pintar imediatamente." },
-    { icon: "🌿", text: "Projetos completos — cada pintura é um guia para o sucesso." },
+    { icon: "🖊️", title: "Desenhos-base prontos", desc: "Para você não se preocupar em desenhar." },
+    { icon: "🎨", title: "Referências coloridas", desc: "Escolha as cores com facilidade." },
+    { icon: "👣", title: "Sequências visuais", desc: "Siga o passo a passo e finalize sua pintura." },
+    { icon: "🖨️", title: "Versões prontas para imprimir", desc: "Comece a pintar imediatamente." },
+    { icon: "🌿", title: "Projetos completos", desc: "Cada pintura é um guia para o sucesso." },
   ],
 };
 
