@@ -21,19 +21,18 @@ export const offerBar = {
 
 export const hero = {
   logo: { src: "/logo-aquarelas-da-natureza2.webp", alt: "Aquarelas da Natureza", width: 200, height: 60 },
-  titleHighlight: "+35 PINTURAS GUIADAS ",
-  title: "PRONTAS PARA PINTAR AQUARELAS LINDAS DA NATUREZA",
+  titleHighlight: "Aprenda a pintar aquarelas lindas ",
+  title: "mesmo que você nunca tenha segurado um pincel.",
   image: { alt: "Mockup principal do pacote Aquarelas da Natureza", width: 383, height: 383 },
   subtitle:
-    "Você receberá desenhos-base prontos, referências coloridas e sequências visuais que orientam cada etapa — ideal para iniciantes ou quem quer recomeçar.",
+    "Receba 35 projetos guiados com desenho-base, referência colorida e passo a passo visual para simplesmente imprimir e pintar.",
   ctaLabel: "QUERO PINTAR AGORA",
   note: "Você não precisa saber desenhar. Basta transferir o desenho-base, seguir a referência colorida e pintar passo a passo.",
   checks: [
-    "Desenhos-base prontos para usar",
-    "Referências coloridas para facilitar",
-    "Sequências visuais que orientam cada etapa",
-    "Versões prontas para imprimir",
-    "Ideal para iniciantes ou quem quer recomeçar",
+    "Nunca fique travado sem saber por onde começar.",
+    "Copie as cores usando referências prontas.",
+    "Siga cada etapa visualmente sem depender de vídeos longos.",
+    "Imprima quantas vezes quiser e pratique no seu ritmo.",
   ],
   deliveryNote: "📲 Você recebe tudo na hora, direto no seu e-mail",
   socialProofLabel: "Alunas satisfeitas",

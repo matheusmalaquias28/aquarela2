@@ -161,6 +161,7 @@ export default function Home() {
           <span className="text-brand">{hero.titleHighlight}</span>
           {hero.title}
         </h1>
+        <p className="max-w-[360px] text-[14px] leading-[1.45] text-muted">{hero.subtitle}</p>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/img-principal-383.webp"
