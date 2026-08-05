@@ -42,6 +42,7 @@ export const materials = {
   title: "VEJA O QUE VOCÊ VAI RECEBER JÁ!",
   imageSize: { width: 1080, height: 1350 },
   items: [
+    { src: "/mar-e-areia.webp", alt: "Ficha guiada Aquarela Mar e Areia com passo a passo", size: { width: 520, height: 920 } },
     { src: "/beija1.webp",      alt: "Beija-flor em aquarela" },
     { src: "/beija2.webp",      alt: "Beija-flor em aquarela — referência colorida" },
     { src: "/costela1.webp",    alt: "Costela de adão em aquarela" },
