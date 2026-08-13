@@ -39,7 +39,15 @@ body {
 }
 .marquee-track {
   animation: marquee var(--marquee-duration, 20s) linear infinite;
-  will-change: transform;
+}
+
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 640px;
+}
+
+.contain-paint {
+  contain: layout style paint;
 }
 
 /* CTA: pulso suave contínuo; no hover a animação pausa e o botão sobe */

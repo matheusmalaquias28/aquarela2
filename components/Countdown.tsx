@@ -13,7 +13,7 @@ function untilMidnight() {
 }
 
 /** Contagem regressiva até a meia-noite local; vazio no servidor para evitar mismatch. */
-export function Countdown() {
+export function Countdown({ className = "inline tabular-nums" }: { className?: string }) {
   const [left, setLeft] = useState("");
 
   useEffect(() => {
@@ -22,10 +22,6 @@ export function Countdown() {
     return () => clearInterval(t);
   }, []);
 
-  if (!left) return null;
-  return (
-    <span className="block text-center tabular-nums lg:inline lg:before:content-['_|_']">
-      {left}
-    </span>
-  );
+  if (!left) return <span className={className} aria-hidden>--:--:--</span>;
+  return <span className={className}>{left}</span>;
 }

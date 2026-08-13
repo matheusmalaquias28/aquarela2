@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import { img } from "@/lib/images";
+import { footer, hero } from "@/data/content";
+---
+
+<footer class="bg-cream px-4 py-12 sm:px-6">
+  <div class="mx-auto max-w-4xl text-center">
+    <Image
+      src={img(hero.logo)}
+      alt={hero.logoAlt}
+      width={200}
+      height={60}
+      loading="lazy"
+      class="mx-auto h-auto w-36 opacity-80"
+    />
+
+    <a
+      href={`mailto:${footer.email}`}
+      class="mt-5 inline-block font-label text-sm font-semibold text-green-deep underline decoration-green/30 underline-offset-2"
+      >{footer.email}</a
+    >
+
+    <p class="mx-auto mt-6 max-w-3xl font-body text-[11px] leading-relaxed text-ink-mute">
+      {footer.legal}
+    </p>
+
+    <p class="mt-6 font-label text-xs text-ink-mute">{footer.copyright}</p>
+  </div>
+</footer>

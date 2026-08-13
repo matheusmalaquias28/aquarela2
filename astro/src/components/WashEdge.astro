@@ -1,0 +1,39 @@
+---
+/**
+ * Borda "molhado sobre molhado": pinta a cor da seção ANTERIOR no topo desta
+ * seção, com um contorno inferior irregular (deckled) — como pigmento de
+ * aquarela sangrando no papel úmido. Fica dentro da caixa da seção (sem
+ * overflow), então funciona mesmo com overflow-hidden.
+ *
+ *   <WashEdge over="var(--color-cream)" />
+ */
+interface Props {
+  /** Cor da seção que fica ACIMA desta (a que "escorre" para dentro). */
+  over: string;
+  /** Espelha o contorno horizontalmente, para variar entre seções. */
+  flip?: boolean;
+}
+const { over, flip = false } = Astro.props;
+
+// Dois contornos deckled alternáveis para a borda não se repetir igual.
+const edgeA =
+  "M0,0 H1440 V30 C1332,47 1286,19 1178,31 C1070,43 1016,17 902,27 C788,37 736,52 618,39 C516,29 470,49 358,35 C246,22 198,45 88,33 C48,28 24,35 0,31 Z";
+const edgeB =
+  "M0,0 H1440 V33 C1350,22 1300,44 1190,34 C1080,24 1030,50 910,38 C800,27 742,17 628,30 C520,42 466,20 356,33 C250,45 196,24 92,35 C52,39 26,29 0,34 Z";
+const d = flip ? edgeB : edgeA;
+---
+
+<div
+  class="pointer-events-none absolute inset-x-0 top-0 z-[5] h-7 sm:h-11"
+  style={`color:${over}`}
+  aria-hidden="true"
+>
+  <svg
+    viewBox="0 0 1440 60"
+    preserveAspectRatio="none"
+    class="block h-full w-full"
+    style={flip ? "transform: scaleX(-1)" : undefined}
+  >
+    <path fill="currentColor" d={d}></path>
+  </svg>
+</div>

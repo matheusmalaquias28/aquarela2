@@ -1,0 +1,36 @@
+---
+import { ideal } from "@/data/content";
+import WashEdge from "@/components/WashEdge.astro";
+---
+
+<section class="paper-grain relative overflow-hidden bg-cream px-4 py-16 sm:px-6 sm:py-20">
+  <WashEdge over="var(--color-green-deep)" flip />
+  <div class="relative mx-auto max-w-6xl">
+    <h2 class="mx-auto max-w-3xl text-center text-3xl text-ink sm:text-4xl">
+      {ideal.title}
+    </h2>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      {
+        ideal.items.map((it, i) => (
+          <div class="flex gap-5 rounded-2xl bg-white p-6 shadow-card ring-1 ring-black/5">
+            <span
+              class="font-display text-4xl leading-none text-green/25 sm:text-5xl"
+              aria-hidden="true"
+            >
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <h3 class="font-label text-base font-bold uppercase tracking-wide text-green-deep">
+                {it.title}
+              </h3>
+              <p class="mt-1.5 font-body text-sm text-ink-soft sm:text-[15px]">
+                {it.desc}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

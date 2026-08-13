@@ -1,0 +1,23 @@
+---
+import { testimonials2 } from "@/data/content";
+import StoryMarquee from "@/components/StoryMarquee.astro";
+import Deco from "@/components/Deco.astro";
+import WashEdge from "@/components/WashEdge.astro";
+---
+
+<section class="paper-grain relative overflow-hidden bg-cream py-16 sm:py-20">
+  <WashEdge over="var(--color-cerulean)" />
+  <div class="mx-auto max-w-4xl px-4 text-center sm:px-6">
+    <span class="inline-flex items-center gap-2 text-green">
+      <Deco name="sparkle" class="w-5 text-ochre" />
+      <span class="eyebrow-script text-2xl">{testimonials2.socialProof}</span>
+      <Deco name="arrow-curve" class="w-10 -scale-x-100 text-ochre" />
+    </span>
+    <h2 class="mt-2 text-3xl text-ink sm:text-4xl">{testimonials2.title}</h2>
+  </div>
+
+  <div class="mt-10 space-y-4">
+    <StoryMarquee />
+    <StoryMarquee reverse />
+  </div>
+</section>

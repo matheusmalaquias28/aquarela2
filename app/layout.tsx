@@ -3,6 +3,7 @@ import { Fredoka, Manrope } from "next/font/google";
 import { DeferredScripts } from "@/components/DeferredScripts";
 import { DeferredVercel } from "@/components/DeferredVercel";
 import { Gtm } from "@/components/Gtm";
+import { MetaPixel } from "@/components/MetaPixel";
 import "./globals.css";
 
 const fredoka = Fredoka({
@@ -17,7 +18,7 @@ const fredoka = Fredoka({
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "600"],
   display: "swap",
   preload: true,
   adjustFontFallback: true,
@@ -49,11 +50,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${fredoka.variable} ${manrope.variable} antialiased`}>
-      <head>
-        <link rel="preload" as="image" href="/img-principal-383.webp" fetchPriority="high" type="image/webp" />
-      </head>
       <body>
         {children}
+        <MetaPixel />
         <DeferredScripts />
         <Gtm />
         <DeferredVercel />

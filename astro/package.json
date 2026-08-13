@@ -1,0 +1,22 @@
+{
+  "name": "aquarela-astro",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.13.0",
+    "@tailwindcss/vite": "^4.1.0",
+    "tailwindcss": "^4.1.0",
+    "@fontsource-variable/nunito": "^5.2.5",
+    "@fontsource-variable/caveat": "^5.2.5",
+    "@fontsource-variable/manrope": "^5.2.5",
+    "@fontsource-variable/work-sans": "^5.2.5",
+    "sharp": "^0.34.0"
+  }
+}

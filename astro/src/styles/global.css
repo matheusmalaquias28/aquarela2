@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+/* ── Fontes self-hosted (fontsource) ── */
+@import "@fontsource-variable/nunito";
+@import "@fontsource-variable/caveat";
+@import "@fontsource-variable/manrope";
+@import "@fontsource-variable/work-sans";
+
+/* ─────────────────────────────────────────────────────────
+   Aquarela Ethos — Design Tokens
+   Tactile Minimalism · watercolor · paper texture
+   ───────────────────────────────────────────────────────── */
+@theme {
+  /* Wash / paper (nunca branco puro no fundo) */
+  --color-cream: #fbf9f4;
+  --color-paper: #fdf8f0;
+  --color-paper-soft: #f5f3ee;
+  --color-paper-dim: #eae8e3;
+  --color-white: #ffffff;
+
+  /* Pigments */
+  --color-green: #3a7d44; /* brand */
+  --color-green-deep: #154212;
+  --color-green-soft: #9dd090;
+  --color-rose: #9e3f41; /* rose madder */
+  --color-rose-soft: #ffb3b1;
+  --color-cerulean: #003a6c;
+  --color-navy: #041774;
+  --color-ochre: #c98a2b;
+
+  /* Ink */
+  --color-ink: #1b1c19;
+  --color-ink-soft: #42493e;
+  --color-ink-mute: #72796e;
+  --color-dark: #131313;
+
+  /* Feedback */
+  --color-success: #07c707;
+  --color-error: #e53935;
+
+  /* Tipografia */
+  --font-display: "Nunito Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Caveat Variable", ui-serif, cursive;
+  --font-body: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-label: "Work Sans Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Raio */
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Sombra difusa tingida (nunca preto puro) */
+  --shadow-soft: 0 20px 60px -20px rgba(21, 66, 18, 0.18);
+  --shadow-card: 0 12px 40px -16px rgba(27, 28, 25, 0.12);
+
+  /* Largura de conteúdo */
+  --spacing-gutter: 1.5rem;
+
+  /* Animações */
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee-slow: marquee 60s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Crossfade das imagens do grid do hero (alternam entre si) */
+@keyframes tilefade {
+  0%,
+  42% {
+    opacity: 1;
+  }
+  50%,
+  92% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ── Base ── */
+:root {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+/* Palavra manuscrita de destaque (estilo "students" da referência) */
+.font-script {
+  font-family: var(--font-script);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 0.9;
+}
+
+/* Rótulo "eyebrow" manuscrito */
+.eyebrow-script {
+  font-family: var(--font-script);
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Grid de fundo do hero (linhas sutis, com fade radial nas bordas) */
+.bg-hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(21, 66, 18, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(21, 66, 18, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    #000 35%,
+    transparent 82%
+  );
+  mask-image: radial-gradient(ellipse at center, #000 35%, transparent 82%);
+}
+
+/* Grain animado sutil (ruído em movimento) */
+.grain-animated {
+  position: absolute;
+  inset: -60%;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 1.2s steps(4) infinite;
+}
+
+@keyframes grain {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-4%, 3%);
+  }
+  50% {
+    transform: translate(3%, -4%);
+  }
+  75% {
+    transform: translate(-3%, -3%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Textura de papel sutil (grain) reutilizável */
+.paper-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Respeita prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Marquee pausa no hover */
+.marquee-track {
+  will-change: transform;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Esconde scrollbar em carrosséis com scroll-snap */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

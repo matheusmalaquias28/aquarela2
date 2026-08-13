@@ -1,0 +1,36 @@
+---
+import { why } from "@/data/content";
+import WashEdge from "@/components/WashEdge.astro";
+---
+
+<section class="paper-grain relative overflow-hidden bg-green-deep px-4 py-16 text-white sm:px-6 sm:py-20">
+  <WashEdge over="var(--color-paper)" />
+  <div
+    class="pointer-events-none absolute -right-16 -top-16 size-72 rounded-full bg-green-soft/10 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-6xl">
+    <h2 class="text-center text-3xl text-white sm:text-4xl">
+      {why.title}
+    </h2>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        why.cards.map((c) => (
+          <div class="group flex flex-col items-center rounded-2xl bg-white/5 p-7 text-center ring-1 ring-white/10 backdrop-blur-sm transition-colors hover:bg-white/10">
+            <span
+              class="mb-4 flex size-16 items-center justify-center rounded-full bg-green-soft/15 text-3xl"
+              aria-hidden="true"
+            >
+              {c.icon}
+            </span>
+            <h3 class="font-display text-xl text-white">{c.title}</h3>
+            <p class="mt-2 font-body text-sm text-green-soft">{c.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

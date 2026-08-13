@@ -1,0 +1,35 @@
+---
+import { checkout, plans } from "@/data/content";
+---
+
+<div
+  id="sticky-cta"
+  class="fixed inset-x-0 bottom-0 z-50 translate-y-full opacity-0 transition-all duration-300 ease-out"
+>
+  <div
+    class="mx-auto max-w-2xl px-3 pb-3"
+    style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom));"
+  >
+    <a
+      href={checkout.complete}
+      data-cta="sticky"
+      class="flex items-center justify-between gap-3 rounded-full bg-green px-5 py-3 text-white shadow-soft ring-1 ring-white/20"
+    >
+      <span class="flex flex-col leading-tight">
+        <span class="font-label text-[11px] uppercase tracking-wide text-green-soft"
+          >Plano Completo</span
+        >
+        <span class="font-label text-base font-bold">
+          {plans.complete.price}
+          <span class="text-xs font-normal text-green-soft"
+            >· {plans.complete.installments}</span
+          >
+        </span>
+      </span>
+      <span
+        class="whitespace-nowrap rounded-full bg-white px-4 py-2 font-label text-sm font-bold uppercase text-green-deep"
+        >Quero pintar</span
+      >
+    </a>
+  </div>
+</div>

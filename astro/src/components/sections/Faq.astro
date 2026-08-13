@@ -1,0 +1,32 @@
+---
+import { faq } from "@/data/content";
+import WashEdge from "@/components/WashEdge.astro";
+---
+
+<section class="relative overflow-hidden bg-white px-4 py-16 sm:px-6 sm:py-20">
+  <WashEdge over="var(--color-green-deep)" flip />
+  <div class="mx-auto max-w-3xl">
+    <h2 class="text-center text-3xl text-ink sm:text-4xl">Perguntas frequentes</h2>
+
+    <div class="mt-10 divide-y divide-black/5 rounded-2xl bg-paper ring-1 ring-black/5">
+      {
+        faq.map(([q, a]) => (
+          <details class="group px-5 py-1 sm:px-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-label text-base font-semibold text-ink [&::-webkit-details-marker]:hidden">
+              {q}
+              <svg
+                class="w-5 shrink-0 text-green transition-transform duration-200 group-open:rotate-45"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </summary>
+            <p class="pb-4 font-body text-sm text-ink-soft sm:text-[15px]">{a}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

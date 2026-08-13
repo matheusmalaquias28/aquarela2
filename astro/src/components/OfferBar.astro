@@ -1,0 +1,18 @@
+---
+import { offerBar } from "@/data/content";
+// Data atual formatada em pt-BR (ex.: 11/08/2026)
+const today = new Date().toLocaleDateString("pt-BR", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+});
+---
+
+<div class="bg-rose text-white">
+  <p
+    class="mx-auto flex max-w-5xl items-center justify-center gap-2 px-4 py-2.5 text-center font-label text-[11px] font-semibold uppercase tracking-wide sm:text-sm"
+  >
+    <span class="inline-block size-2 animate-pulse rounded-full bg-white"></span>
+    {offerBar.text} {today}
+  </p>
+</div>

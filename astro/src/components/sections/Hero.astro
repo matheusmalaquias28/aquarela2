@@ -1,0 +1,212 @@
+---
+import { Image } from "astro:assets";
+import { img } from "@/lib/images";
+import { hero, checkout } from "@/data/content";
+import Cta from "@/components/Cta.astro";
+import Deco from "@/components/Deco.astro";
+
+// Grid de aquarelas anguladas que alternam entre si (crossfade)
+const heroTiles = [
+  { a: "girassol1.webp", b: "rosa1.webp", alt: "Girassol em aquarela", rot: "-5deg", delay: "0s" },
+  { a: "beija1.webp", b: "eucalipto1.webp", alt: "Beija-flor em aquarela", rot: "4deg", delay: "2.25s" },
+  { a: "costela1.webp", b: "mar-e-areia.webp", alt: "Costela de adão em aquarela", rot: "3.5deg", delay: "4.5s" },
+  { a: "raposa1.webp", b: "girassol2.webp", alt: "Raposa em aquarela", rot: "-4deg", delay: "6.75s" },
+] as const;
+---
+
+<section
+  class="relative overflow-hidden bg-cream px-4 pb-14 pt-6 sm:px-6 sm:pb-20"
+>
+  <!-- grade de fundo + grain animado sutil -->
+  <div class="pointer-events-none absolute inset-0 -z-10 bg-hero-grid" aria-hidden="true"></div>
+  <div class="grain-animated -z-10" aria-hidden="true"></div>
+
+  <!-- sentinela: enquanto visível (topo), o sticky CTA fica oculto -->
+  <div id="hero-sentinel" class="absolute inset-x-0 top-0 h-24" aria-hidden="true"></div>
+
+  <!-- blobs de pigmento decorativos -->
+  <div
+    class="pointer-events-none absolute -left-24 top-10 -z-0 size-72 rounded-full bg-green/10 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute -right-20 top-40 -z-0 size-64 rounded-full bg-rose/10 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative mx-auto max-w-6xl">
+    <!-- logo -->
+    <header class="flex justify-center pb-8 pt-2">
+      <Image
+        src={img(hero.logo)}
+        alt={hero.logoAlt}
+        width={220}
+        height={66}
+        loading="eager"
+        class="h-auto w-40 sm:w-52"
+      />
+    </header>
+
+    <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+      <!-- imagem (primeiro no mobile) -->
+      <div class="relative order-1 mx-auto w-full max-w-md lg:order-2 lg:max-w-none">
+        <div
+          class="pointer-events-none absolute inset-0 -z-0 scale-90 rounded-[42%_58%_60%_40%/45%_45%_55%_55%] bg-green-soft/25 blur-2xl"
+          aria-hidden="true"
+        >
+        </div>
+        <Deco name="sparkle" class="absolute -left-2 top-4 z-10 w-7 text-ochre" />
+        <Deco name="sparkle-4" class="absolute right-1 -top-2 z-10 w-6 text-rose/70" />
+
+        <!-- grid de aquarelas anguladas que alternam entre si -->
+        <div class="relative grid grid-cols-2 gap-4 p-2 sm:gap-5">
+          {
+            heroTiles.map((t, i) => (
+              <div
+                class="group relative aspect-square overflow-hidden rounded-2xl bg-white shadow-card ring-1 ring-black/5 transition duration-500 hover:z-10 hover:scale-[1.04]"
+                style={`transform: rotate(${t.rot});`}
+              >
+                <Image
+                  src={img(t.b)}
+                  alt=""
+                  width={500}
+                  height={500}
+                  loading="lazy"
+                  aria-hidden="true"
+                  class="absolute inset-0 size-full object-cover"
+                />
+                <Image
+                  src={img(t.a)}
+                  alt={t.alt}
+                  width={500}
+                  height={500}
+                  loading={i === 0 ? "eager" : undefined}
+                  fetchpriority={i === 0 ? "high" : undefined}
+                  class="absolute inset-0 size-full object-cover"
+                  style={`animation: tilefade 9s ease-in-out infinite; animation-delay: ${t.delay};`}
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- copy -->
+      <div class="order-2 text-center lg:order-1 lg:text-left">
+        <h1
+          class="text-balance text-3xl leading-tight text-ink sm:text-4xl lg:text-5xl"
+        >
+          {hero.titlePre}{" "}
+          <span class="relative inline-block whitespace-nowrap">
+            <span class="font-script text-[1.35em] text-green">{hero.titleScript}</span>
+            <Deco
+              name="underline"
+              class="absolute -bottom-1 left-0 w-full text-ochre"
+            />
+            <Deco
+              name="sparkle-4"
+              class="absolute -right-6 -top-3 w-5 text-rose"
+            />
+          </span>
+          <span class="mt-2 block text-green-deep">{hero.titleBottom}</span>
+        </h1>
+
+        <p
+          class="mx-auto mt-5 max-w-xl text-pretty font-body text-base text-ink-soft sm:text-lg lg:mx-0"
+        >
+          {hero.subtitle}
+        </p>
+
+        <!-- checks 2 colunas -->
+        <ul
+          class="mx-auto mt-7 grid max-w-xl gap-x-5 gap-y-3 text-left sm:grid-cols-2 lg:mx-0"
+        >
+          {
+            hero.checks.map((c) => (
+              <li class="flex items-start gap-2.5">
+                <svg
+                  class="mt-0.5 w-5 shrink-0"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <circle cx="10" cy="10" r="10" fill="#3a7d44" fill-opacity="0.12" />
+                  <path
+                    d="M6 10.5l2.5 2.5L14 7"
+                    stroke="#3a7d44"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span class="font-body text-sm text-ink-soft sm:text-[15px]">{c}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="relative mx-auto mt-8 max-w-md lg:mx-0">
+          <Deco
+            name="arrow-curve"
+            class="absolute -left-14 -top-10 hidden w-16 -scale-x-100 text-green/60 lg:block"
+          />
+          <Cta href={checkout.complete} label={hero.cta} />
+        </div>
+
+        <!-- prova social -->
+        <div
+          class="mt-6 flex items-center justify-center gap-3 lg:justify-start"
+        >
+          <div class="flex -space-x-3">
+            {
+              hero.avatars.map((a) => (
+                <Image
+                  src={img(a)}
+                  alt=""
+                  width={40}
+                  height={40}
+                  loading="lazy"
+                  class="size-9 rounded-full object-cover ring-2 ring-cream"
+                  aria-hidden="true"
+                />
+              ))
+            }
+          </div>
+          <div class="text-left">
+            <div class="flex text-ochre" aria-hidden="true">
+              {[0, 1, 2, 3, 4].map(() => (
+                <svg class="w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 1l2.6 5.3 5.9.9-4.2 4.1 1 5.8L10 14.9 4.7 17.6l1-5.8L1.5 7.2l5.9-.9L10 1z" />
+                </svg>
+              ))}
+            </div>
+            <p class="font-label text-xs font-semibold text-ink-soft">
+              {hero.socialProof}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- paisagem em aquarela embutida no fundo do fim do hero (full-bleed) -->
+  <figure class="relative z-0 -mx-4 -mb-14 mt-12 sm:-mx-6 sm:-mb-20 sm:mt-16">
+    <Image
+      src={img("paisagem-hero.png")}
+      alt="Paisagem em aquarela: montanhas e lago"
+      width={1440}
+      height={480}
+      loading="lazy"
+      class="h-auto w-full object-cover"
+      sizes="100vw"
+    />
+    <!-- fade no topo para embutir na cor de fundo do hero -->
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-cream to-transparent"
+      aria-hidden="true"
+    >
+    </div>
+  </figure>
+</section>

@@ -1,0 +1,50 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  variant?: "primary" | "light";
+  class?: string;
+  pulse?: boolean;
+}
+const {
+  href,
+  label,
+  variant = "primary",
+  class: extra = "",
+  pulse = true,
+} = Astro.props;
+
+const base =
+  "group relative inline-flex w-full items-center justify-center gap-2 rounded-full px-8 py-4 text-center font-label text-base font-bold uppercase tracking-wide shadow-soft transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0 sm:text-lg";
+const styles = {
+  primary: "bg-green text-white hover:bg-green-deep",
+  light: "bg-white text-green-deep ring-1 ring-green/20 hover:bg-paper",
+};
+---
+
+<a
+  href={href}
+  class:list={[base, styles[variant], extra]}
+  data-cta={label}
+>
+  {pulse && (
+    <span
+      class="absolute inset-0 -z-10 animate-ping rounded-full bg-green/30 [animation-duration:2.5s]"
+      aria-hidden="true"
+    ></span>
+  )}
+  <span>{label}</span>
+  <svg
+    class="w-5 shrink-0 transition-transform duration-200 group-hover:translate-x-1"
+    viewBox="0 0 20 20"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M4 10h12M11 5l5 5-5 5"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </svg>
+</a>

@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import { img } from "@/lib/images";
+import { materials } from "@/data/content";
+import Deco from "@/components/Deco.astro";
+---
+
+<section class="relative overflow-hidden bg-paper px-0 py-16 sm:py-20">
+  <div class="mx-auto max-w-6xl px-4 text-center sm:px-6">
+    <span
+      class="inline-flex items-center gap-2 text-green"
+    >
+      <span class="eyebrow-script text-2xl">Aquarelas da Natureza</span>
+      <Deco name="arrow-curve" class="w-10 text-ochre" />
+    </span>
+    <h2 class="mt-2 text-3xl text-ink sm:text-4xl">{materials.title}</h2>
+  </div>
+
+  <!-- carrossel scroll-snap -->
+  <div
+    class="no-scrollbar mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-4 sm:gap-6 sm:px-6"
+  >
+    {
+      materials.items.map((it, i) => (
+        <figure
+          class="w-[240px] shrink-0 snap-center overflow-hidden rounded-2xl bg-white shadow-card ring-1 ring-black/5 sm:w-[300px]"
+        >
+          <Image
+            src={img(it.src)}
+            alt={it.alt}
+            width={600}
+            height={800}
+            loading={i < 2 ? "eager" : "lazy"}
+            class="h-auto w-full object-cover"
+            sizes="(min-width: 640px) 300px, 240px"
+          />
+        </figure>
+      ))
+    }
+  </div>
+
+  <p class="mt-6 flex items-center justify-center gap-2 font-label text-sm text-ink-mute">
+    <svg class="w-4" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Arraste para ver mais
+  </p>
+</section>

@@ -1,0 +1,50 @@
+---
+import "@/styles/global.css";
+import { site } from "@/data/content";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title = site.title, description = site.description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#3a7d44" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={Astro.site} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-fallback.webp" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <slot />
+
+    <!-- Sticky CTA: aparece após o hero sair da tela -->
+    <script>
+      const sentinel = document.getElementById("hero-sentinel");
+      const sticky = document.getElementById("sticky-cta");
+      if (sentinel && sticky) {
+        const io = new IntersectionObserver(([entry]) => {
+          // hero-sentinel visível (usuário no topo) → esconde o sticky CTA
+          sticky.classList.toggle("translate-y-full", entry.isIntersecting);
+          sticky.classList.toggle("opacity-0", entry.isIntersecting);
+        });
+        io.observe(sentinel);
+      }
+    </script>
+  </body>
+</html>

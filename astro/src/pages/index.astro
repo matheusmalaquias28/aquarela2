@@ -1,0 +1,67 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import OfferBar from "@/components/OfferBar.astro";
+import StickyCta from "@/components/StickyCta.astro";
+import StoryMarquee from "@/components/StoryMarquee.astro";
+import Hero from "@/components/sections/Hero.astro";
+import Materials from "@/components/sections/Materials.astro";
+import Why from "@/components/sections/Why.astro";
+import Ideal from "@/components/sections/Ideal.astro";
+import Offer from "@/components/sections/Offer.astro";
+import Bonus from "@/components/sections/Bonus.astro";
+import Plans from "@/components/sections/Plans.astro";
+import Guarantee from "@/components/sections/Guarantee.astro";
+import Testimonials2 from "@/components/sections/Testimonials2.astro";
+import Steps from "@/components/sections/Steps.astro";
+import Faq from "@/components/sections/Faq.astro";
+import SiteFooter from "@/components/sections/SiteFooter.astro";
+---
+
+<Layout>
+  <!-- 1. Barra de oferta -->
+  <OfferBar />
+
+  <!-- 2. Hero -->
+  <Hero />
+
+  <!-- 3. Depoimentos strip (carrossel automático logo abaixo do hero) -->
+  <div class="bg-cream pb-6">
+    <StoryMarquee />
+  </div>
+
+  <!-- 4. Materiais (carrossel) -->
+  <Materials />
+
+  <!-- 5. O que os materiais possuem -->
+  <Why />
+
+  <!-- 6. Ideal para você -->
+  <Ideal />
+
+  <!-- 7. Oferta principal -->
+  <Offer />
+
+  <!-- 8. Bônus -->
+  <Bonus />
+
+  <!-- 9. Planos -->
+  <Plans />
+
+  <!-- 10. Garantia -->
+  <Guarantee />
+
+  <!-- 11. Depoimentos 2 -->
+  <Testimonials2 />
+
+  <!-- 12. Como funciona -->
+  <Steps />
+
+  <!-- 13. FAQ -->
+  <Faq />
+
+  <!-- 14. Rodapé -->
+  <SiteFooter />
+
+  <!-- CTA fixo mobile -->
+  <StickyCta />
+</Layout>

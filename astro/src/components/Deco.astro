@@ -1,0 +1,98 @@
+---
+/**
+ * Elementos decorativos hand-drawn (inspirados no tbh.studiovoila.com),
+ * adaptados à paleta da marca. Uso:
+ *   <Deco name="sparkle" class="w-6 text-ochre" />
+ *   <Deco name="arrow-curve" class="w-16 text-green" />
+ */
+interface Props {
+  name: "sparkle" | "sparkle-4" | "arrow-curve" | "arrow-down" | "underline";
+  class?: string;
+}
+const { name, class: extra = "" } = Astro.props;
+---
+
+{
+  name === "sparkle" && (
+    <svg class:list={[extra]} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M12 1c.6 5.4 4.6 9.4 10 10-5.4.6-9.4 4.6-10 10-.6-5.4-4.6-9.4-10-10 5.4-.6 9.4-4.6 10-10Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
+
+{
+  name === "sparkle-4" && (
+    <svg class:list={[extra]} viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path
+        d="M16 2c.9 6.6 6.4 12.1 13 13-6.6.9-12.1 6.4-13 13-.9-6.6-6.4-12.1-13-13C9.6 14.1 15.1 8.6 16 2Z"
+        fill="currentColor"
+      />
+      <path
+        d="M27 3c.3 2 1.9 3.6 4 4-2 .3-3.6 1.9-4 4-.3-2-1.9-3.6-4-4 2-.3 3.6-1.9 4-4Z"
+        fill="currentColor"
+        opacity="0.7"
+      />
+    </svg>
+  )
+}
+
+{
+  name === "arrow-curve" && (
+    <svg class:list={[extra]} viewBox="0 0 90 60" fill="none" aria-hidden="true">
+      <path
+        d="M3 8c22 4 44 14 52 34"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        fill="none"
+      />
+      <path
+        d="M43 40c5 4 9 5 15 4M58 44c-2-5-3-9-2-14"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+      />
+    </svg>
+  )
+}
+
+{
+  name === "arrow-down" && (
+    <svg class:list={[extra]} viewBox="0 0 40 70" fill="none" aria-hidden="true">
+      <path
+        d="M20 3c-6 18-4 38 2 56"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        fill="none"
+      />
+      <path
+        d="M9 46c5 6 9 10 13 13 4-4 7-9 9-15"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+      />
+    </svg>
+  )
+}
+
+{
+  name === "underline" && (
+    <svg class:list={[extra]} viewBox="0 0 200 16" fill="none" aria-hidden="true" preserveAspectRatio="none">
+      <path
+        d="M4 10c40-6 100-8 192-4"
+        stroke="currentColor"
+        stroke-width="4"
+        stroke-linecap="round"
+        fill="none"
+      />
+    </svg>
+  )
+}
