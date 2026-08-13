@@ -658,10 +658,11 @@ export default function HomeV2() {
             {testimonials.title}
           </h2>
         </div>
-        <div className="mt-7">
+        <div className="mt-7 flex justify-center">
           <Marquee
             duration={28}
-            itemWidth={250}
+            itemWidth={220}
+            containerClassName="w-full max-w-[480px] sm:max-w-[640px] lg:max-w-[960px] mx-auto"
             imageSize={testimonials.imageSize}
             items={testimonials.items}
           />
@@ -718,7 +719,7 @@ export default function HomeV2() {
           ))}
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4 flex justify-center">
           <CtaButton
             href="#plano-completo"
             label={stepsSection.ctaLabel}
