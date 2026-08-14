@@ -372,21 +372,25 @@ export default function HomeV2() {
             className="w-full max-w-[383px] rounded-[12px]"
           />
 
+          <h2 className="font-display text-[36px] font-semibold leading-[0.9] text-white">
+            {offerSection.featuresTitle}
+          </h2>
+
           <ul className="w-full max-w-[400px] text-left">
-            {[...offerSection.features, ...bonusFeatures].map((f) => (
+            {offerSection.features.map((f) => (
               <FeatureItem key={f} text={f} light />
             ))}
           </ul>
 
-          <p className="font-display text-lg text-white/60">{offerSection.moreLabel}</p>
-          <CtaButton
-            href="#plano-completo"
-            label={offerSection.ctaLabel}
-            id="oferta_principal"
-          />
-          <p className="text-[13px] font-semibold text-muted">
-            {offerSection.deliveryNote}
-          </p>
+          <h2 className="font-display text-[36px] font-semibold leading-[0.9] text-white">
+            {offerSection.guidesTitle}
+          </h2>
+
+          <ul className="w-full max-w-[400px] text-left">
+            {offerSection.guideFeatures.map((f) => (
+              <FeatureItem key={f} text={f} light />
+            ))}
+          </ul>
         </div>
       </section>
 

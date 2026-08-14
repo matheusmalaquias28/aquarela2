@@ -111,9 +111,11 @@ export const idealSection = {
 };
 
 export const offerSection = {
-  title: "TUDO O QUE VOCÊ VAI RECEBER",
+  title: "TUDO FOI ORGANIZADO PARA SER SIMPLES E FÁCIL DE APLICAR",
   pill: "⚡ACESSO IMEDIATO",
-  cardTitle: "TUDO FOI ORGANIZADO PARA SER SIMPLES E FÁCIL DE APLICAR. Você escolhe a pintura e já pode começar na mesma hora.",
+  cardTitle: "Você escolhe a pintura e já pode começar na mesma hora.",
+  featuresTitle: "35 Referências da Natureza",
+  guidesTitle: "35 Guias de pintura para cada referência",
   image: {
     src: "/entregaveis-v2/plano-completo-v2-640.webp",
     alt: "Mockup do pacote Aquarelas da Natureza",
@@ -121,16 +123,21 @@ export const offerSection = {
     height: 640,
   },
   features: [
-    "35 Referências da Natureza",
-    "Flores, folhas e plantas, pássaros e borboletas",
-    "Animais da natureza, paisagens, frutas e elementos naturais",
-    "35 Guias de pintura — um para cada referência",
-    "Girassol, Margarida, Tulipa, Costela-de-adão, Samambaia...",
-    "Beija-flor, Raposa, Cervo, Montanhas, Pôr do sol, Limões...",
+    "Flores",
+    "Folhas e plantas",
+    "Pássaros e borboletas",
+    "Animais da natureza",
+    "Paisagens",
+    "Frutas e elementos naturais",
   ],
-  moreLabel: "E MUITO MAIS...",
-  ctaLabel: "QUERO ACESSAR AGORA E PINTAR HOJE",
-  deliveryNote: hero.deliveryNote,
+  guideFeatures: [
+    "Girassol, Margarida, Tulipa...",
+    "Costela-de-adão, Samambaia...",
+    "Beija-flor, Passarinho, Coruja...",
+    "Raposa, Cervo, Elefante...",
+    "Montanhas, Pôr do sol...",
+    "Limões, Morangos...",
+  ],
 };
 
 export const bonusFeatures = [
