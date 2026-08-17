@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Fredoka, Manrope } from "next/font/google";
 import { DeferredScripts } from "@/components/DeferredScripts";
 import { DeferredVercel } from "@/components/DeferredVercel";
-import { Gtm } from "@/components/Gtm";
+import { GtmNoscript, GtmScript } from "@/components/Gtm";
 import { MetaPixel } from "@/components/MetaPixel";
 import "./globals.css";
 
@@ -51,10 +51,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${fredoka.variable} ${manrope.variable} antialiased`}>
       <body>
+        <GtmNoscript />
+        <GtmScript />
         {children}
         <MetaPixel />
         <DeferredScripts />
-        <Gtm />
         <DeferredVercel />
       </body>
     </html>
