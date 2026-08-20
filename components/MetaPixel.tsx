@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect } from "react";
-
 const PIXEL_ID = "703849964870347";
 
 type Fbq = {
@@ -17,12 +13,11 @@ declare global {
   interface Window {
     fbq?: Fbq;
     _fbq?: Fbq;
-    __fbLoaded?: boolean;
   }
 }
 
 function ensureStub(): Fbq {
-  if (window.fbq) return window.fbq;
+  if (window.fbq) return window.fbq as Fbq;
   const n = function (...args: unknown[]) {
     if (n.callMethod) n.callMethod(...args);
     else n.queue.push(args);
@@ -36,28 +31,7 @@ function ensureStub(): Fbq {
   return n;
 }
 
-function loadScript() {
-  if (window.__fbLoaded) return;
-  window.__fbLoaded = true;
-  const s = document.createElement("script");
-  s.async = true;
-  s.src = "https://connect.facebook.net/en_US/fbevents.js";
-  document.head.appendChild(s);
-}
-
-/**
- * Meta Pixel: o stub enfileira init + PageView e o fbevents.js carrega
- * imediatamente (async — não bloqueia a renderização). Carregamento imediato é
- * necessário para a ferramenta de configuração de eventos da Meta detectar o pixel.
- */
-export function MetaPixel() {
-  useEffect(() => {
-    const fbq = ensureStub();
-    fbq("init", PIXEL_ID);
-    fbq("track", "PageView");
-    loadScript();
-  }, []);
-
+export function MetaPixelNoscript() {
   return (
     <noscript>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -72,13 +46,11 @@ export function MetaPixel() {
   );
 }
 
-/** Dispara um evento padrão do Pixel de qualquer lugar (usa a fila se o script ainda não carregou). */
 export function fbTrack(event: string, data?: Record<string, unknown>) {
   if (typeof window === "undefined") return;
   ensureStub()("track", event, data);
 }
 
-/** Dispara um evento customizado do Pixel (fora da lista de eventos padrão da Meta). */
 export function fbTrackCustom(event: string, data?: Record<string, unknown>) {
   if (typeof window === "undefined") return;
   ensureStub()("trackCustom", event, data);

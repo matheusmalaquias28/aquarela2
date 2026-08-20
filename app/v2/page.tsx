@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import { CtaButton } from "@/components/CtaButton";
 import { HeroVideo } from "@/components/HeroVideo";
+import { Marquee } from "@/components/Marquee";
 import { CHECKOUT_BASIC, CHECKOUT_COMPLETE } from "@/lib/config";
 import {
   theme,
@@ -23,11 +24,6 @@ import {
 
 const StickyCta = dynamic(() =>
   import("@/components/StickyCta").then((m) => m.StickyCta),
-);
-
-const Marquee = dynamic(
-  () => import("@/components/Marquee").then((m) => m.Marquee),
-  { loading: () => <div className="mx-auto h-[280px] w-full max-w-[480px]" aria-hidden /> },
 );
 /* ── palette ── */
 const P = {
@@ -149,7 +145,7 @@ function FeatureItem({
   );
 }
 
-function Avatars({ priority = false }: { priority?: boolean }) {
+function Avatars() {
   return (
     <div className="flex flex-col items-center gap-2">
       <div className="flex items-center">
@@ -168,7 +164,6 @@ function Avatars({ priority = false }: { priority?: boolean }) {
             alt=""
             width={42}
             height={42}
-            priority={priority}
             className={`rounded-full object-cover ring-2 ring-white ${cls} ${i > 0 ? "-ml-2" : ""}`}
           />
         ))}
@@ -191,13 +186,6 @@ export default function HomeV2() {
 
   return (
     <>
-      <link
-        rel="preload"
-        as="image"
-        href={hero.poster.src}
-        fetchPriority="high"
-        type="image/webp"
-      />
     <main
       className="flex w-full flex-col overflow-x-hidden"
       style={{ "--color-brand": theme.brandColor } as React.CSSProperties}
@@ -226,15 +214,27 @@ export default function HomeV2() {
             </span>
           </h1>
 
-          <div className="relative mt-2 w-full max-w-[383px]">
+          <div
+            className="relative mt-2 aspect-square w-full max-w-[383px]"
+            style={{
+              boxShadow: `0 0 0 3px rgba(58,125,68,0.25), 0 8px 32px rgba(58,125,68,0.12)`,
+              borderRadius: 12,
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={hero.poster.src}
+              alt={hero.image.alt}
+              width={383}
+              height={383}
+              fetchPriority="high"
+              decoding="async"
+              className="absolute inset-0 h-full w-full rounded-[12px] object-cover"
+            />
             <HeroVideo
               src={hero.video.src}
-              poster={hero.poster.src}
               alt={hero.image.alt}
-              className="aspect-square w-full rounded-[12px] object-cover"
-              style={{
-                boxShadow: `0 0 0 3px rgba(58,125,68,0.25), 0 8px 32px rgba(58,125,68,0.12)`,
-              }}
+              className="absolute inset-0 h-full w-full rounded-[12px] object-cover"
             />
           </div>
 
@@ -253,7 +253,7 @@ export default function HomeV2() {
             <br />
             {hero.deliveryNoteLines[1]}
           </p>
-          <Avatars priority />
+          <Avatars />
         </div>
       </section>
 

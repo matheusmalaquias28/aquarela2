@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { hero } from "@/lib/content-v2";
 
 export const metadata: Metadata = {
   title: "Aquarelas da Natureza | Pinturas Realistas Prontas para Usar",
@@ -7,5 +8,16 @@ export const metadata: Metadata = {
 };
 
 export default function V2Layout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <link
+        rel="preload"
+        as="image"
+        href={hero.poster.src}
+        fetchPriority="high"
+        type="image/webp"
+      />
+      {children}
+    </>
+  );
 }

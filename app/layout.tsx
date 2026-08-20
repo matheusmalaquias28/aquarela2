@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Fredoka, Manrope } from "next/font/google";
-import { DeferredScripts } from "@/components/DeferredScripts";
 import { DeferredVercel } from "@/components/DeferredVercel";
-import { GtmNoscript, GtmScript } from "@/components/Gtm";
-import { MetaPixel } from "@/components/MetaPixel";
+import { GtmNoscript } from "@/components/Gtm";
+import { MetaPixelNoscript } from "@/components/MetaPixel";
+import { TrackingScripts } from "@/components/TrackingScripts";
 import "./globals.css";
 
 const fredoka = Fredoka({
@@ -20,7 +20,7 @@ const manrope = Manrope({
   subsets: ["latin"],
   weight: ["400", "600"],
   display: "swap",
-  preload: true,
+  preload: false,
   adjustFontFallback: true,
 });
 
@@ -51,11 +51,13 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${fredoka.variable} ${manrope.variable} antialiased`}>
       <body>
+        <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn.utmify.com.br" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.facebook.com" />
         <GtmNoscript />
-        <GtmScript />
+        <MetaPixelNoscript />
         {children}
-        <MetaPixel />
-        <DeferredScripts />
+        <TrackingScripts />
         <DeferredVercel />
       </body>
     </html>

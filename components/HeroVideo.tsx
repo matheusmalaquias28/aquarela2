@@ -4,23 +4,20 @@ import { useEffect, useRef, useState } from "react";
 
 type Props = {
   src: string;
-  poster: string;
   alt: string;
   className?: string;
-  style?: React.CSSProperties;
 };
 
-/** Poster nativo do vídeo como LCP; MP4 só carrega na viewport. */
-export function HeroVideo({ src, poster, alt, className = "", style }: Props) {
+/** MP4 só carrega na viewport; o poster LCP fica no <img> do server. */
+export function HeroVideo({ src, alt, className = "" }: Props) {
   const ref = useRef<HTMLVideoElement>(null);
   const [active, setActive] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || active) return;
 
     const start = () => {
-      if (active) return;
       setActive(true);
       el.src = src;
       el.load();
@@ -47,14 +44,12 @@ export function HeroVideo({ src, poster, alt, className = "", style }: Props) {
   return (
     <video
       ref={ref}
-      poster={poster}
       muted
       loop
       playsInline
       preload="none"
       aria-label={alt}
-      className={className}
-      style={style}
+      className={`${className} ${active ? "opacity-100" : "pointer-events-none opacity-0"}`}
     />
   );
 }

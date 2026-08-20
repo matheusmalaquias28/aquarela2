@@ -1,8 +1,3 @@
-"use client";
-
-import { track } from "@/components/Gtm";
-import { fbTrackCustom } from "@/components/MetaPixel";
-
 type Props = {
   href: string;
   label: string;
@@ -19,20 +14,10 @@ export function CtaButton({ href, label, id, planName, className = "" }: Props) 
   return (
     <a
       href={href}
-      onClick={(e) => {
-        track("cta_click", { cta_id: id, cta_label: label });
-        if (planName) {
-          fbTrackCustom(`CtaPlano${planName}`, { cta_id: id, cta_label: label });
-        } else {
-          fbTrackCustom("CtaClick", { cta_id: id, cta_label: label });
-        }
-
-        if (isExternalCheckout) {
-          e.preventDefault();
-          e.stopPropagation();
-          window.location.assign(e.currentTarget.href);
-        }
-      }}
+      data-cta-id={id}
+      data-cta-label={label}
+      data-plan-name={planName}
+      data-external={isExternalCheckout ? "1" : undefined}
       className={`cta-pulse flex h-[72px] w-full max-w-[365px] items-center justify-center rounded-full bg-cta font-display text-[24px] font-semibold text-white ${className}`}
     >
       {label}
