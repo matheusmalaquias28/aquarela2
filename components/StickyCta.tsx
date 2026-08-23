@@ -6,7 +6,11 @@ import { useEffect, useState } from "react";
  * CTA fixo no rodapé do mobile: aparece depois que o hero sai da tela
  * e some enquanto o card do Plano Completo está visível (para não cobrir o botão real).
  */
-export function StickyCta() {
+export function StickyCta({
+  label = "QUERO COMEÇAR AGORA",
+}: {
+  label?: string;
+}) {
   const [pastHero, setPastHero] = useState(false);
   const [planVisible, setPlanVisible] = useState(false);
 
@@ -53,10 +57,10 @@ export function StickyCta() {
         href="#plano-completo"
         tabIndex={show ? 0 : -1}
         data-cta-id="sticky_mobile"
-        data-cta-label="QUERO COMEÇAR AGORA"
+        data-cta-label={label}
         className="mx-auto flex h-[56px] w-full max-w-[420px] items-center justify-center rounded-full bg-cta font-display text-[20px] font-semibold text-white shadow-[0_8px_24px_rgba(0,0,0,0.25)] active:scale-[0.98]"
       >
-        QUERO COMEÇAR AGORA
+        {label}
       </a>
     </div>
   );
