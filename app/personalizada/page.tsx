@@ -114,9 +114,9 @@ function SecurePurchaseBadge() {
   );
 }
 
-function Badge({ children }: { children: React.ReactNode }) {
+function Badge({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <span className="z-10 inline-block rounded-full bg-badge px-4 py-2 text-[13px] font-semibold text-white">
+    <span className={`z-10 inline-block rounded-full bg-badge px-4 py-2 text-[13px] font-semibold text-white ${className}`}>
       {children}
     </span>
   );
@@ -394,7 +394,7 @@ export default function HomePersonalizada() {
         className={`${BELOW} scroll-mt-4 px-5 pb-16 pt-12 text-center`}
       >
         <div className="mx-auto max-w-[1040px]">
-          <Badge>{plansSection.pill}</Badge>
+          <Badge className="whitespace-nowrap px-3 py-1.5 text-[10px]">{plansSection.pill}</Badge>
           <h2 className="my-7 font-display text-[38px] font-semibold leading-[0.9] text-ink">
             {plansSection.title}
           </h2>
@@ -402,13 +402,12 @@ export default function HomePersonalizada() {
           <div className="mx-auto flex max-w-[480px] flex-col items-center">
             {/* Plano Completo */}
             <div className="flex w-full flex-col items-center">
-              <Badge>⚡MAIS VENDIDO</Badge>
               <div
-                className="-mt-4 flex w-full flex-col items-center gap-4 rounded-2xl px-6 pb-10 pt-6"
+                className="flex w-full flex-col items-center gap-4 rounded-2xl px-6 pb-10 pt-6"
                 style={{ backgroundColor: P.dark }}
               >
                 <span
-                  className="mt-3 inline-block rounded-full px-4 py-2 font-display text-[13px] font-bold text-white"
+                  className="mt-3 inline-block whitespace-nowrap rounded-full px-3 py-1.5 font-display text-[10px] font-bold text-white"
                   style={{ backgroundColor: "#e30000" }}
                 >
                   {plansSection.complete.badge}
