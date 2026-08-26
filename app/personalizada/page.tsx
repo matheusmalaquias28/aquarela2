@@ -9,10 +9,10 @@ import {
   whySection,
   idealSection,
   offerSection,
-  bonusFeatures,
   plansSection,
   guarantee,
   contact,
+  testimonials,
   stepsSection,
   faq,
   footer,
@@ -20,6 +20,9 @@ import {
 
 const StickyCta = dynamic(() =>
   import("@/components/StickyCta").then((m) => m.StickyCta),
+);
+const TestimonialCarousel = dynamic(() =>
+  import("@/components/TestimonialCarousel").then((m) => m.TestimonialCarousel),
 );
 /* ── palette ── */
 const P = {
@@ -210,43 +213,25 @@ export default function HomePersonalizada() {
           <span className="inline-flex items-center rounded-full border border-brand/20 bg-[#ecf7ee] px-4 py-2 text-[12px] font-semibold leading-snug text-ink shadow-[0_2px_8px_rgba(58,125,68,0.08)]">
             {hero.secureSeal}
           </span>
-          <h1
-            className="leading-[1.05] text-ink"
-            style={{
-              fontFamily: "var(--font-manrope-page), Manrope, sans-serif",
-              fontSynthesis: "none",
-            }}
-          >
-            <span
-              className="block text-[26px] text-brand"
-              style={{ fontWeight: 900, fontSynthesis: "weight" }}
-            >
+          <div role="heading" aria-level={1} className="leading-[1.05]">
+            <p className="block font-display text-[26px] font-semibold text-brand">
               {hero.titleHighlight}
-            </span>
-            <span
-              className="block text-[25px]"
-              style={{ color: "#5a5a5a", fontWeight: 800 }}
-            >
+            </p>
+            <p className="block font-display text-[25px] font-semibold" style={{ color: "#5a5a5a" }}>
               {hero.title}
-            </span>
-          </h1>
+            </p>
+          </div>
 
-          <div
-            className="relative mt-2 aspect-square w-full max-w-[383px]"
-            style={{
-              boxShadow: `0 0 0 3px rgba(58,125,68,0.25), 0 8px 32px rgba(58,125,68,0.12)`,
-              borderRadius: 12,
-            }}
-          >
+          <div className="relative mt-2 w-full max-w-[383px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={hero.poster.src}
               alt={hero.image.alt}
-              width={383}
-              height={383}
+              width={hero.image.width}
+              height={hero.image.height}
               fetchPriority="high"
               decoding="async"
-              className="h-full w-full rounded-[12px] object-cover"
+              className="h-auto w-full rounded-[10px]"
             />
           </div>
 
@@ -414,80 +399,9 @@ export default function HomePersonalizada() {
             {plansSection.title}
           </h2>
 
-          <div className="flex flex-col gap-6 lg:grid lg:grid-cols-2 lg:items-start">
-            {/* Plano Básico */}
-            <div
-              className="flex flex-col items-center gap-4 rounded-2xl border px-6 py-10"
-              style={{
-                backgroundColor: P.cream,
-                borderColor: "#e0d5c8",
-              }}
-            >
-              <h3 className="font-display text-[28px] font-semibold text-ink">
-                {plansSection.basic.name}
-              </h3>
-              <LazyImg
-                src={plansSection.basic.image.src}
-                alt={plansSection.basic.image.alt}
-                width={plansSection.basic.image.width}
-                height={plansSection.basic.image.height}
-                className="w-full max-w-[320px] rounded-xl"
-              />
-              <h4 className="font-display text-[20px] text-ink">
-                {plansSection.basic.receiveLabel}
-              </h4>
-              <ul className="w-full max-w-[320px] text-left">
-                {plansSection.basic.features.map((f) => (
-                  <FeatureItem key={f} text={f} />
-                ))}
-                {bonusFeatures.map((f) => (
-                  <FeatureItem key={f} text={f} struck />
-                ))}
-              </ul>
-              <p className="font-display text-[18px] text-alert line-through">
-                {plansSection.basic.oldPrice}
-              </p>
-              <p className="font-display text-[60px] font-semibold leading-none text-ink">
-                {plansSection.basic.price}
-              </p>
-              <p className={`font-display ${SUB} text-ink`}>
-                {plansSection.basic.installments}
-              </p>
-              <p className={`font-display ${SUB} text-ink`}>
-                {plansSection.basic.savings}
-              </p>
-              <CtaButton
-                href={CHECKOUT_URL}
-                label={plansSection.basic.ctaLabel}
-                id="plano_basico"
-                planName="Basico"
-              />
-              <SecurePurchaseBadge />
-              <p className={`max-w-[260px] font-display ${SUB} text-alert`}>
-                {plansSection.upsellNote.alert}
-                {plansSection.upsellNote.body ? (
-                  <>
-                    {" "}
-                    <span className="text-ink">{plansSection.upsellNote.body}</span>{" "}
-                    <span className="text-badge">{plansSection.upsellNote.highlight}</span>
-                  </>
-                ) : null}
-              </p>
-              {/* Arrow pointing down toward complete plan */}
-              <svg viewBox="0 0 41.2 41.2" className="w-[32px] lg:hidden" aria-hidden>
-                <path
-                  d="M20.57 2.57V38.57M2.57 20.57L20.57 38.57L38.57 20.57"
-                  stroke="#0C0C0C"
-                  strokeWidth="5.14"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-            </div>
-
+          <div className="mx-auto flex max-w-[480px] flex-col items-center">
             {/* Plano Completo */}
-            <div className="flex flex-col items-center">
+            <div className="flex w-full flex-col items-center">
               <Badge>⚡MAIS VENDIDO</Badge>
               <div
                 className="-mt-4 flex w-full flex-col items-center gap-4 rounded-2xl px-6 pb-10 pt-6"
@@ -596,8 +510,24 @@ export default function HomePersonalizada() {
         </div>
       </section>
 
-      {/* Wave navy→green */}
-      <WaveDivider from={P.navy} to={P.green} />
+      {/* Wave navy→cream */}
+      <WaveDivider from={P.navy} to={P.cream} />
+
+      {/* ══ DEPOIMENTOS ══ */}
+      <section
+        style={{ backgroundColor: P.cream }}
+        className={`${BELOW} px-5 pb-16 pt-12 text-center`}
+      >
+        <div className="mx-auto flex w-full max-w-[553px] flex-col items-center gap-7">
+          <h2 className="max-w-[480px] font-display text-[32px] font-semibold leading-[0.95] text-ink">
+            {testimonials.title}
+          </h2>
+          <TestimonialCarousel items={testimonials.items} />
+        </div>
+      </section>
+
+      {/* Wave cream→green */}
+      <WaveDivider from={P.cream} to={P.green} />
 
       {/* ══ COMO FUNCIONA ══ */}
       <section

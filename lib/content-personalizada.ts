@@ -1,6 +1,5 @@
 import {
   materials as materialsBase,
-  testimonials as testimonialsBase,
   contact,
   footer,
 } from "./content";
@@ -8,14 +7,13 @@ import {
 export { contact, footer };
 
 export const testimonials = {
-  ...testimonialsBase,
-  title: "VEJA O QUE NOSSOS CLIENTES ESTÃO DIZENDO",
-  subtitle: "Leia os depoimentos de quem já tomou a decisão certa.",
-  imageSize: { width: 1080, height: 1350 },
-  items: [45, 46, 47, 48, 49, 50, 51].map((n) => ({
-    src: `/entregaveis-v2/instagram-post-${n}-500.webp`,
-    alt: "Depoimento de cliente",
-  })),
+  title: "Veja quem comprou e já fez seu quadro em Aquarela!",
+  items: [
+    { src: "/personalizada/depoimento-01.png", alt: "Depoimento de Marina no WhatsApp", width: 553, height: 1024 },
+    { src: "/personalizada/depoimento-02.png", alt: "Depoimento de Roberta no WhatsApp", width: 553, height: 1024 },
+    { src: "/personalizada/depoimento-03.png", alt: "Depoimento de cliente no WhatsApp", width: 553, height: 1024 },
+    { src: "/personalizada/depoimento-04.png", alt: "Depoimento de Rosangela no WhatsApp", width: 553, height: 1024 },
+  ],
 };
 
 export const materials = {
@@ -44,7 +42,7 @@ export const hero = {
   secureSeal: "🔒Compra 100% Segura e Protegida",
   titleHighlight: "ENVIE UMA FOTO E RECEBA O MOLDE DE DESENHO",
   title: "+ O GUIA PASSO A PASSO PARA PINTÁ-LA EM AQUARELA",
-  image: { alt: "Transforme seus momentos especiais em uma pintura em aquarela única", width: 383, height: 383 },
+  image: { alt: "Processo de pintura em aquarela personalizada de um pet", width: 1024, height: 1024 },
   poster: { src: "/personalizada/hero.png" },
   subtitle:
     "Transforme o sorriso do seu filho, seu pet, uma viagem especial ou qualquer foto que você ama em uma aquarela pintada pelas suas próprias mãos.",

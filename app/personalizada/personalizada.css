@@ -1,0 +1,13 @@
+.personalizada-page {
+  --cta: var(--color-cta);
+}
+
+.personalizada-page .cta-pulse,
+.personalizada-page a[data-cta-id="sticky_mobile"] {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--cta), white 14%) 0%,
+    var(--cta) 55%,
+    color-mix(in srgb, var(--cta), black 12%) 100%
+  );
+}

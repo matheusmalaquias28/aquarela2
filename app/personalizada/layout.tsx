@@ -5,6 +5,8 @@ import Script from "next/script";
 
 import { hero } from "@/lib/content-personalizada";
 
+import "./personalizada.css";
+
 
 
 const manropePage = Manrope({
@@ -37,7 +39,7 @@ export default function PersonalizadaLayout({ children }: { children: React.Reac
 
   return (
 
-    <div className={manropePage.variable}>
+    <div className={`${manropePage.variable} personalizada-page`}>
 
       <link
 
