@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OfertaPrincipalBootScript } from "@/components/OfertaPrincipalBootScript";
 import { hero } from "@/lib/content-v2";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function V2Layout({ children }: { children: React.ReactNode }) {
         type="image/webp"
       />
       {children}
+      <OfertaPrincipalBootScript />
     </>
   );
 }

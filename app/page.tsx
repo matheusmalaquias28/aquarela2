@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { Marquee } from "@/components/Marquee";
 import { CtaButton } from "@/components/CtaButton";
+import { OfertaPrincipalBootScript } from "@/components/OfertaPrincipalBootScript";
 import { TodayDate } from "@/components/TodayDate";
 import { CHECKOUT_BASIC, CHECKOUT_COMPLETE } from "@/lib/config";
 import {
@@ -136,6 +137,8 @@ function MaterialsCarousel() {
 
 export default function Home() {
   return (
+    <>
+    <OfertaPrincipalBootScript />
     <main className="flex w-full flex-col" style={{ "--color-brand": theme.brandColor } as React.CSSProperties}>
       {/* Barra de oferta */}
       <div className="flex items-center justify-center bg-red-600 p-[10px]">
@@ -472,5 +475,6 @@ export default function Home() {
         <p className="mt-[20px] text-[12px] text-muted">{footer.legal}</p>
       </footer>
     </main>
+    </>
   );
 }
