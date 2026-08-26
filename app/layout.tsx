@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fredoka, Manrope } from "next/font/google";
 import { DeferredVercel } from "@/components/DeferredVercel";
+import { TrackingHead } from "@/components/TrackingHead";
 import "./globals.css";
 
 const fredoka = Fredoka({
@@ -48,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${fredoka.variable} ${manrope.variable} antialiased`}>
       <body>
-        <link rel="preconnect" href="https://cdn.utmify.com.br" crossOrigin="anonymous" />
+        <TrackingHead />
         {children}
         <DeferredVercel />
       </body>

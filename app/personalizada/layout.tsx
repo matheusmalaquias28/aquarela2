@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import { Manrope } from "next/font/google";
 
-import { PersonalizadaBootScript } from "@/components/PersonalizadaBootScript";
 import { hero } from "@/lib/content-personalizada";
 
 import "./personalizada.css";
@@ -31,7 +30,6 @@ export default function PersonalizadaLayout({ children }: { children: React.Reac
         type="image/png"
       />
       {children}
-      <PersonalizadaBootScript />
     </div>
   );
 }
