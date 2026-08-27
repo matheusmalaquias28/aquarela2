@@ -394,8 +394,7 @@ export default function HomePersonalizada() {
         className={`${BELOW} scroll-mt-4 px-5 pb-16 pt-12 text-center`}
       >
         <div className="mx-auto max-w-[1040px]">
-          <Badge className="whitespace-nowrap px-3 py-1.5 text-[10px]">{plansSection.pill}</Badge>
-          <h2 className="my-7 font-display text-[38px] font-semibold leading-[0.9] text-ink">
+          <h2 className="mb-7 font-display text-[38px] font-semibold leading-[0.9] text-ink">
             {plansSection.title}
           </h2>
 
@@ -406,18 +405,6 @@ export default function HomePersonalizada() {
                 className="flex w-full flex-col items-center gap-4 rounded-2xl px-6 pb-10 pt-6"
                 style={{ backgroundColor: P.dark }}
               >
-                <span
-                  className="mt-3 inline-block whitespace-nowrap rounded-full px-3 py-1.5 font-display text-[10px] font-bold text-white"
-                  style={{ backgroundColor: "#e30000" }}
-                >
-                  {plansSection.complete.badge}
-                </span>
-                <p
-                  className="px-3 py-2 font-display text-[22px] font-semibold text-white sm:text-[24px]"
-                  style={{ backgroundColor: P.green }}
-                >
-                  {plansSection.complete.name}
-                </p>
                 {plansSection.complete.allBonusesLabel ? (
                   <p className={`flex items-center gap-2 font-display ${SUB} text-white`}>
                     <Check /> {plansSection.complete.allBonusesLabel}
