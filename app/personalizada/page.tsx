@@ -214,10 +214,10 @@ export default function HomePersonalizada() {
             {hero.secureSeal}
           </span>
           <div role="heading" aria-level={1} className="leading-[1.05]">
-            <p className="block font-display text-[26px] font-semibold text-brand">
+            <p className="block font-display text-[26px] font-semibold" style={{ color: "#FB1FCD" }}>
               {hero.titleHighlight}
             </p>
-            <p className="block font-display text-[25px] font-semibold" style={{ color: "#5a5a5a" }}>
+            <p className="block font-display text-[25px] font-semibold text-black">
               {hero.title}
             </p>
           </div>
