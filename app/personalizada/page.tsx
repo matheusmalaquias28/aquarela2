@@ -267,7 +267,7 @@ export default function HomePersonalizada() {
           </h2>
         </div>
         <Marquee
-          duration={32}
+          duration={24.6}
           itemWidth={260}
           containerClassName="max-w-[480px] lg:max-w-[560px] mx-auto"
           imageSize={materials.imageSize}

@@ -22,9 +22,13 @@ export const materials = {
   imageSize: { width: 3, height: 4 },
   items: [
     { src: "/personalizada/produto-01.png", alt: "Casal de noivos transformado em aquarela" },
+    { src: "/personalizada/produto-06.png", alt: "Retrato familiar multigeracional em aquarela personalizada" },
     { src: "/personalizada/produto-02.png", alt: "Mãos de adulto e criança transformadas em aquarela" },
+    { src: "/personalizada/produto-07.png", alt: "Retrato em aquarela emoldurado de homem idoso e mulher" },
     { src: "/personalizada/produto-03.png", alt: "Pet transformado em aquarela" },
+    { src: "/personalizada/produto-08.png", alt: "Família de quatro pessoas em aquarela personalizada" },
     { src: "/personalizada/produto-04.png", alt: "Chá revelação transformado em aquarela" },
+    { src: "/personalizada/produto-09.png", alt: "Retrato em aquarela de três pessoas em cartão" },
     { src: "/personalizada/produto-05.png", alt: "Amigas transformadas em aquarela" },
   ],
 };
