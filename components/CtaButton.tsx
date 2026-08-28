@@ -1,3 +1,5 @@
+"use client";
+
 type Props = {
   href: string;
   label: string;
@@ -8,12 +10,20 @@ type Props = {
   className?: string;
 };
 
+function scrollToHash(href: string) {
+  const id = href.startsWith("#") ? href.slice(1) : "";
+  if (!id) return;
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 export function CtaButton({ href, label, id, planName, className = "" }: Props) {
+  const isHash = href.startsWith("#");
   const isExternalCheckout = href.startsWith("http://") || href.startsWith("https://");
 
   return (
     <a
       href={href}
+      onClick={isHash ? (e) => { e.preventDefault(); scrollToHash(href); } : undefined}
       data-cta-id={id}
       data-cta-label={label}
       data-plan-name={planName}

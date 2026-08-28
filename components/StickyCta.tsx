@@ -58,6 +58,14 @@ export function StickyCta({
     >
       <a
         href={href}
+        onClick={
+          href.startsWith("#")
+            ? (e) => {
+                e.preventDefault();
+                document.getElementById(href.slice(1))?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            : undefined
+        }
         tabIndex={show ? 0 : -1}
         data-cta-id="sticky_mobile"
         data-cta-label={label}

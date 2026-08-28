@@ -31,6 +31,7 @@ const P = {
   green:  "#3a7d44",
   dark:   "#131313",
   navy:   "#041774",
+  purple: "#2a1045",
 } as const;
 
 const BELOW = "cv-auto contain-paint";
@@ -385,15 +386,15 @@ export default function HomePersonalizada() {
       </section>
 
       {/* Wave dark→white */}
-      <WaveDivider from={P.dark} to={P.white} />
+      <WaveDivider from={P.dark} to={P.purple} />
 
       {/* ══ PLANOS ══ */}
       <section
-        style={{ backgroundColor: P.white }}
+        style={{ backgroundColor: P.purple }}
         className={`${BELOW} scroll-mt-4 px-5 pb-16 pt-12 text-center`}
       >
         <div className="mx-auto max-w-[1040px]">
-          <h2 className="mb-7 font-display text-[38px] font-semibold leading-[0.9] text-ink">
+          <h2 className="mb-7 font-display text-[38px] font-semibold leading-[0.9] text-white">
             {plansSection.title}
           </h2>
 
@@ -402,7 +403,7 @@ export default function HomePersonalizada() {
             <div id="plano-completo" className="scroll-mt-4 flex w-full flex-col items-center">
               <div
                 className="flex w-full flex-col items-center gap-4 rounded-2xl px-6 pb-10 pt-6"
-                style={{ backgroundColor: P.dark }}
+                style={{ backgroundColor: "#1f0a33" }}
               >
                 {plansSection.complete.allBonusesLabel ? (
                   <p className={`flex items-center gap-2 font-display ${SUB} text-white`}>
@@ -447,8 +448,8 @@ export default function HomePersonalizada() {
         </div>
       </section>
 
-      {/* Wave white→navy */}
-      <WaveDivider from={P.white} to={P.navy} />
+      {/* Wave purple→navy */}
+      <WaveDivider from={P.purple} to={P.navy} />
 
       {/* ══ GARANTIA ══ */}
       <section

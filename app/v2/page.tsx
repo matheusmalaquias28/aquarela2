@@ -262,7 +262,7 @@ export default function HomeV2() {
       <WaveDivider from={P.cream} to={P.white} />
 
       {/* ══ MATERIAIS ══ */}
-      <section style={{ backgroundColor: P.white }} className={`${BELOW} pb-14 pt-4 text-center`}>
+      <section style={{ backgroundColor: P.white }} className="pb-14 pt-4 text-center">
         <div className="mx-auto max-w-[640px] px-5">
           <h2 className="mb-7 font-display text-[36px] font-semibold leading-[0.9] text-ink">
             {materials.title}
@@ -283,7 +283,7 @@ export default function HomeV2() {
       {/* ══ POR QUÊ ══ */}
       <section
         style={{ backgroundColor: P.green }}
-        className={`${BELOW} px-6 pb-16 pt-12 text-center`}
+        className="px-6 pb-16 pt-12 text-center"
       >
         <h2 className="mb-9 font-display text-[36px] font-semibold leading-[0.9] text-white">
           {whySection.title}
@@ -316,7 +316,7 @@ export default function HomeV2() {
       {/* ══ IDEAL PARA VOCÊ ══ */}
       <section
         style={{ backgroundColor: P.cream }}
-        className={`${BELOW} px-5 pb-16 pt-12 text-center`}
+        className="px-5 pb-16 pt-12 text-center"
       >
         <div className="mx-auto max-w-[960px]">
           <h2 className="mb-9 font-display text-[36px] font-semibold leading-[0.9] text-ink">
@@ -354,7 +354,7 @@ export default function HomeV2() {
       {/* ══ OFERTA PRINCIPAL ══ */}
       <section
         style={{ backgroundColor: P.dark }}
-        className={`${BELOW} px-5 pb-16 pt-12 text-center`}
+        className="px-5 pb-16 pt-12 text-center"
       >
         <div className="mx-auto flex w-full max-w-[480px] flex-col items-center gap-5">
           <Badge>{offerSection.pill}</Badge>
@@ -401,7 +401,7 @@ export default function HomeV2() {
       {/* ══ BÔNUS ══ */}
       <section
         style={{ backgroundColor: P.green }}
-        className={`${BELOW} px-6 pb-16 pt-12 text-center`}
+        className="px-6 pb-16 pt-12 text-center"
       >
         <h2 className="mb-1 font-display text-[32px] font-semibold leading-snug text-white">
           {bonusSection.titleLines[0]}
@@ -462,11 +462,12 @@ export default function HomeV2() {
       {/* Wave green→white */}
       <WaveDivider from={P.green} to={P.white} />
 
+      <div id="planos" className="scroll-mt-[72px]" aria-hidden="true" />
+
       {/* ══ PLANOS ══ */}
       <section
-        id="planos"
         style={{ backgroundColor: P.white }}
-        className={`${BELOW} scroll-mt-4 px-5 pb-16 pt-12 text-center`}
+        className="px-5 pb-16 pt-12 text-center"
       >
         <div className="mx-auto max-w-[1040px]">
           <Badge>{plansSection.pill}</Badge>
