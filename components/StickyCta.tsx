@@ -8,15 +8,18 @@ import { useEffect, useState } from "react";
  */
 export function StickyCta({
   label = "QUERO COMEÇAR AGORA",
+  href = "#plano-completo",
 }: {
   label?: string;
+  href?: string;
 }) {
   const [pastHero, setPastHero] = useState(false);
   const [planVisible, setPlanVisible] = useState(false);
+  const targetId = href.startsWith("#") ? href.slice(1) : "plano-completo";
 
   useEffect(() => {
     const hero = document.querySelector("main > section");
-    const plan = document.getElementById("plano-completo");
+    const plan = document.getElementById(targetId);
     if (!hero || !plan) return;
 
     let heroVisible = true;
@@ -44,7 +47,7 @@ export function StickyCta({
       heroIo.disconnect();
       planIo.disconnect();
     };
-  }, []);
+  }, [targetId]);
 
   const show = pastHero && !planVisible;
 
@@ -54,7 +57,7 @@ export function StickyCta({
       aria-hidden={!show}
     >
       <a
-        href="#plano-completo"
+        href={href}
         tabIndex={show ? 0 : -1}
         data-cta-id="sticky_mobile"
         data-cta-label={label}

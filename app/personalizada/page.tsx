@@ -202,7 +202,7 @@ export default function HomePersonalizada() {
         </p>
       </div>
 
-      <StickyCta label={hero.ctaLabel} />
+      <StickyCta href="#plano-completo" label={hero.ctaLabel} />
 
       {/* ══ HERO ══ */}
       <section
@@ -389,7 +389,6 @@ export default function HomePersonalizada() {
 
       {/* ══ PLANOS ══ */}
       <section
-        id="plano-completo"
         style={{ backgroundColor: P.white }}
         className={`${BELOW} scroll-mt-4 px-5 pb-16 pt-12 text-center`}
       >
@@ -400,7 +399,7 @@ export default function HomePersonalizada() {
 
           <div className="mx-auto flex max-w-[480px] flex-col items-center">
             {/* Plano Completo */}
-            <div className="flex w-full flex-col items-center">
+            <div id="plano-completo" className="scroll-mt-4 flex w-full flex-col items-center">
               <div
                 className="flex w-full flex-col items-center gap-4 rounded-2xl px-6 pb-10 pt-6"
                 style={{ backgroundColor: P.dark }}

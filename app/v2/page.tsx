@@ -35,6 +35,7 @@ const P = {
 } as const;
 
 const BELOW = "cv-auto contain-paint";
+const PLANOS_ANCHOR = "#planos";
 
 function LazyImg({
   src,
@@ -197,7 +198,7 @@ export default function HomeV2() {
         </p>
       </div>
 
-      <StickyCta />
+      <StickyCta href={PLANOS_ANCHOR} />
 
       {/* ══ HERO ══ */}
       <section
@@ -243,7 +244,7 @@ export default function HomeV2() {
           </p>
 
           <CtaButton
-            href="#plano-completo"
+            href={PLANOS_ANCHOR}
             label={hero.ctaLabel}
             id="hero"
             className="w-full max-w-[382px]"
@@ -463,7 +464,7 @@ export default function HomeV2() {
 
       {/* ══ PLANOS ══ */}
       <section
-        id="plano-completo"
+        id="planos"
         style={{ backgroundColor: P.white }}
         className={`${BELOW} scroll-mt-4 px-5 pb-16 pt-12 text-center`}
       >
@@ -725,7 +726,7 @@ export default function HomeV2() {
 
         <div className="mt-4 flex justify-center">
           <CtaButton
-            href="#plano-completo"
+            href={PLANOS_ANCHOR}
             label={stepsSection.ctaLabel}
             id="passo_a_passo"
           />
